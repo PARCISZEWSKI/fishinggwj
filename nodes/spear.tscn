@@ -1,21 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmsp0jhx7uijx"]
+[gd_scene load_steps=5 format=3 uid="uid://dmsp0jhx7uijx"]
 
+[ext_resource type="Script" uid="uid://71cgj2lpfao1" path="res://nodes/spear.gd" id="1_kvbwv"]
 [ext_resource type="Texture2D" uid="uid://b6ifsx6vy7h2h" path="res://icon.svg" id="1_py0la"]
+[ext_resource type="PackedScene" uid="uid://lvaymwdmerbq" path="res://components/health_component.tscn" id="1_t6vq1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t6vq1"]
-size = Vector2(2, 31)
+size = Vector2(4, 52.5)
 
 [node name="spear" type="RigidBody2D"]
+rotation = 1.5708
+script = ExtResource("1_kvbwv")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.0169006, 0.278162)
+[node name="stick" type="Sprite2D" parent="."]
+modulate = Color(0.623201, 0.411766, 0.316446, 1)
+scale = Vector2(0.0261151, 0.515146)
 texture = ExtResource("1_py0la")
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(-2.38419e-07, 18)
-scale = Vector2(0.0285306, -0.0599283)
+[node name="tip" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0.270588, 1)
+position = Vector2(0, 32)
+scale = Vector2(0.0456119, -0.0768935)
 texture = ExtResource("1_py0la")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5.5)
+position = Vector2(0, 10.75)
 shape = SubResource("RectangleShape2D_t6vq1")
+
+[node name="healthComponent" parent="." instance=ExtResource("1_t6vq1")]
+health = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="healthZero" from="healthComponent" to="." method="_on_health_component_health_zero"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://b76s64dbrngm4"]
+[gd_scene load_steps=3 format=3 uid="uid://b76s64dbrngm4"]
+
+[ext_resource type="PackedScene" uid="uid://kyv8vx6ntb8s" path="res://nodes/player.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://dmsp0jhx7uijx" path="res://nodes/spear.tscn" id="2_0wfyh"]
 
 [node name="main" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_o5qli")]
+position = Vector2(584, 330)
+scale = Vector2(-0.556811, 0.547223)
+
+[node name="spear" parent="." instance=ExtResource("2_0wfyh")]
+position = Vector2(588, 243)
