@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://kyv8vx6ntb8s"]
+
+[ext_resource type="Script" uid="uid://o63u6p4bhfns" path="res://nodes/player.gd" id="1_bms3g"]
+[ext_resource type="Texture2D" uid="uid://b6ifsx6vy7h2h" path="res://icon.svg" id="1_u63mc"]
+
+[node name="player" type="Node2D"]
+script = ExtResource("1_bms3g")
+availableItems = Array[int]([0])
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-6, -97)
+texture = ExtResource("1_u63mc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.171724, 0.240569, 0.114445, 1)
+scale = Vector2(5.36719, 1.01562)
+texture = ExtResource("1_u63mc")
+
+[node name="items" type="Node" parent="."]

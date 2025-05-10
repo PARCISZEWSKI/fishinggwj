@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmsp0jhx7uijx"]
+
+[ext_resource type="Texture2D" uid="uid://b6ifsx6vy7h2h" path="res://icon.svg" id="1_py0la"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t6vq1"]
+size = Vector2(2, 31)
+
+[node name="spear" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0169006, 0.278162)
+texture = ExtResource("1_py0la")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-2.38419e-07, 18)
+scale = Vector2(0.0285306, -0.0599283)
+texture = ExtResource("1_py0la")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_t6vq1")
