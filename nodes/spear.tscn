@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t6vq1"]
 size = Vector2(4, 52.5)
 
-[node name="spear" type="RigidBody2D"]
+[node name="spear" type="RigidBody2D" groups=["item", "spear"]]
 rotation = 1.5708
 script = ExtResource("1_kvbwv")
 
@@ -29,9 +29,7 @@ shape = SubResource("RectangleShape2D_t6vq1")
 [node name="healthComponent" parent="." instance=ExtResource("1_t6vq1")]
 health = 1
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
+[node name="castCharge" type="Timer" parent="."]
+autostart = true
 
 [connection signal="healthZero" from="healthComponent" to="." method="_on_health_component_health_zero"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -18,6 +18,16 @@ config/icon="res://icon.svg"
 [autoload]
 
 Enums="*res://singletons/enums.gd"
+Audio="*res://addons/quick_audio/./Audio.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/quick_audio/plugin.cfg")
+
+[global_group]
+
+item=""
+spear=""
 
 [input]
 
