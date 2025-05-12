@@ -1,8 +1,43 @@
-[gd_scene load_steps=2 format=3 uid="uid://b76s64dbrngm4"]
+[gd_scene load_steps=9 format=3 uid="uid://b76s64dbrngm4"]
 
+[ext_resource type="Texture2D" uid="uid://b6ifsx6vy7h2h" path="res://icon.svg" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://kyv8vx6ntb8s" path="res://nodes/player.tscn" id="1_o5qli"]
+[ext_resource type="Shader" uid="uid://2jyk63bthwvy" path="res://assets/water_shader.gdshader" id="2_sugp2"]
+[ext_resource type="Script" uid="uid://b1afqbou4mmu3" path="res://assets/water_shader.gd" id="3_jyhfs"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_i74xo"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g8y3y"]
+width = 500
+height = 500
+seamless = true
+noise = SubResource("FastNoiseLite_i74xo")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tbgi4"]
+shader = ExtResource("2_sugp2")
+shader_parameter/CAST_COLOR = Color(9.40054e-09, 0.0118882, 0.0363577, 0)
+shader_parameter/fast_noise = SubResource("NoiseTexture2D_g8y3y")
+shader_parameter/speed = Vector2(0.03, 0.07)
+shader_parameter/wave_strength = 2.0
+shader_parameter/scale_y = 100.0
+shader_parameter/y_zoom = 0.683013
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_1elys"]
 
 [node name="main" type="Node2D"]
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1.42888e-08, 0.0245006, 0.0572112, 0.513726)
+position = Vector2(555.5, 153)
+scale = Vector2(9.67969, 3.39062)
+texture = ExtResource("1_jyhfs")
+
 [node name="player" parent="." instance=ExtResource("1_o5qli")]
 position = Vector2(581, 316)
+
+[node name="waterShader" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_tbgi4")
+position = Vector2(584, 503.5)
+scale = Vector2(1194, 317)
+texture = SubResource("CanvasTexture_1elys")
+script = ExtResource("3_jyhfs")
