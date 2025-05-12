@@ -1,0 +1,189 @@
+[gd_scene load_steps=9 format=3 uid="uid://hijht0dsuvgo"]
+
+[ext_resource type="Theme" uid="uid://cfkxwyulff85" path="res://assets/theme.tres" id="1_g8ogf"]
+[ext_resource type="Script" uid="uid://b7sbeegio13yy" path="res://interface/main_menu.gd" id="1_wwcsp"]
+[ext_resource type="PackedScene" uid="uid://hsux5oifdyix" path="res://assets/water_shader.tscn" id="2_dftu7"]
+[ext_resource type="PackedScene" uid="uid://b76s64dbrngm4" path="res://scenes/main.tscn" id="2_i5udr"]
+[ext_resource type="Shader" uid="uid://2jyk63bthwvy" path="res://assets/water_shader.gdshader" id="3_rahlh"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_i74xo"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g8y3y"]
+width = 500
+height = 500
+seamless = true
+noise = SubResource("FastNoiseLite_i74xo")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wwcsp"]
+shader = ExtResource("3_rahlh")
+shader_parameter/CAST_COLOR = Color(0, 0.0595723, 0.127542, 1)
+shader_parameter/fast_noise = SubResource("NoiseTexture2D_g8y3y")
+shader_parameter/speed = Vector2(0.03, 0.07)
+shader_parameter/wave_strength = 1.0
+shader_parameter/scale_y = 0.0
+shader_parameter/y_zoom = 0.466507
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_wwcsp")
+startLevel = ExtResource("2_i5udr")
+
+[node name="menu" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.5
+offset_top = -73.5
+offset_right = 98.5
+offset_bottom = 73.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_g8ogf")
+
+[node name="Label" type="Label" parent="menu"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 46
+text = "Title"
+horizontal_alignment = 1
+
+[node name="pillow1" type="Control" parent="menu"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="start" type="Button" parent="menu"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Start"
+
+[node name="pillow2" type="Control" parent="menu"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="settings" type="Button" parent="menu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Settings"
+
+[node name="settings" type="VBoxContainer" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -163.0
+offset_top = -72.0
+offset_right = 160.0
+offset_bottom = 207.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_g8ogf")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 46
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="pillow1" type="Control" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.85
+
+[node name="Label4" type="Label" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "master"
+horizontal_alignment = 1
+
+[node name="pillow6" type="Control" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="master" type="HSlider" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.001
+value = 0.8
+
+[node name="Label2" type="Label" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "music"
+horizontal_alignment = 1
+
+[node name="pillow4" type="Control" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="music" type="HSlider" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.001
+value = 0.8
+
+[node name="pillow2" type="Control" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="Label3" type="Label" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "sound"
+horizontal_alignment = 1
+
+[node name="pillow5" type="Control" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="sfx" type="HSlider" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.001
+value = 0.8
+
+[node name="pillow3" type="Control" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="back" type="Button" parent="settings"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Back"
+
+[node name="waterShader" parent="." instance=ExtResource("2_dftu7")]
+material = SubResource("ShaderMaterial_wwcsp")
+position = Vector2(573.125, 330.875)
+scale = Vector2(1181.75, 718.25)
+
+[connection signal="button_down" from="menu/start" to="." method="_on_start_button_down"]
+[connection signal="button_down" from="menu/settings" to="." method="_on_settings_button_down"]
+[connection signal="value_changed" from="settings/master" to="." method="_on_master_value_changed"]
+[connection signal="value_changed" from="settings/music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="settings/sfx" to="." method="_on_sfx_value_changed"]
+[connection signal="button_down" from="settings/back" to="." method="_on_back_button_down"]
