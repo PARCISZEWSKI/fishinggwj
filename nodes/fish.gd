@@ -27,7 +27,5 @@ func _on_timer_timeout():  #Change direction randomly
 		$visual/bass.flip_h = direction.x < 0
 		$visual/bass/outline.flip_h = direction.x < 0
 
-
-
 func _on_body_entered(body) -> void:
 	queue_free()

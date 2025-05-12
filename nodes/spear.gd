@@ -5,6 +5,9 @@ extends Node2D
 @export var spearPhysics: PackedScene ##Scene to be loaded
 @export var oscillation_speed: float = PI/2.0 ##Bigger number -> faster
 
+
+
+
 var direction: Vector2 ##Direction to mouseposition
 var current_state: SPEARSTATUS = SPEARSTATUS.ready ##Current state in statemachine
 var spearChild: RigidBody2D ##Reference to spawned physics spear
@@ -43,6 +46,19 @@ func _process(delta: float) -> void:
 				chargeBar.visible = true
 
 		SPEARSTATUS.charging: #Charging spear throw
+			var mouse_pos = get_global_mouse_position()
+			direction = (mouse_pos - global_position).normalized()
+			#Calculate target angle with constraints
+			var MAX_LEFT_ANGLE = deg_to_rad(-40) #60 degrees left
+			var MAX_RIGHT_ANGLE = deg_to_rad(40) #60 degrees right
+			var raw_angle = direction.angle() - PI/2
+			var target_angle = clamp(raw_angle, MAX_LEFT_ANGLE, MAX_RIGHT_ANGLE)
+			#Apply damped rotation
+			sprite.rotation = lerp_angle(sprite.rotation, target_angle, 0.0005)
+
+			# Add slight scale effect during rotation
+			sprite.scale = Vector2(1.0, 1.0) * (1.0 + 0.1 * abs(sin(sprite.rotation * 2)))
+			
 			#FIXME: Add reduced sprite rotation to charging mode to make aiming harder and more natural
 			if Input.is_action_just_released("primary"):
 				chargeBar.visible = false
