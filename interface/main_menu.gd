@@ -1,7 +1,11 @@
-extends CanvasLayer
+extends Node
 
+@export_group("Scene Control")
 @export var skipMenu: bool = false ##Turn to true to skip main menu, used for testing purposes
 @export var startLevel: PackedScene ##Level to load when pressing the start button
+
+@export_group("Audio")
+@export var clickSound: AudioStream ##Audio stream when player click audio
 
 #References to all notable children
 @onready var start : = $menu/start
@@ -26,11 +30,15 @@ func _ready() -> void:
 
 func _on_start_button_down() -> void: ##Starts level on start button press
 	get_tree().change_scene_to_packed(startLevel)
+	Audio.play_sound(clickSound, "Effects")
+
+
 
 
 func _on_settings_button_down() -> void: ##Opens settings screen
 	menu.visible = false
 	settingsMenu.visible = true
+	Audio.play_sound(clickSound, "Effects")
 
 #Volume control used by the sliders on settings screen
 func _on_master_value_changed(value: float) -> void:
@@ -46,3 +54,4 @@ func _on_sfx_value_changed(value:float) -> void:
 func _on_back_button_down() -> void:
 	menu.visible = true
 	settingsMenu.visible = false
+	Audio.play_sound(clickSound, "Effects")

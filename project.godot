@@ -22,16 +22,13 @@ buses/default_bus_layout="res://assets/default_bus_layout.tres"
 [autoload]
 
 Enums="*res://singletons/enums.gd"
-Audio="*res://addons/quick_audio/./Audio.gd"
+Audio="*res://singletons/Audio.tscn"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/quick_audio/plugin.cfg")
+window/stretch/mode="canvas_items"
 
 [global_group]
 

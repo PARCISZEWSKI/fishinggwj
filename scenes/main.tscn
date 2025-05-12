@@ -30,22 +30,22 @@ shader_parameter/y_zoom = 0.620921
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1.42888e-08, 0.0245006, 0.0572112, 0.513726)
-position = Vector2(555.5, 153)
-scale = Vector2(9.67969, 3.39062)
+position = Vector2(994, 270)
+scale = Vector2(15.7734, 4.46875)
 texture = ExtResource("1_jyhfs")
 
 [node name="player" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(581, 316)
+position = Vector2(881, 454)
 
 [node name="waterShader" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_tbgi4")
-position = Vector2(584, 503.5)
-scale = Vector2(1194, 317)
+position = Vector2(854.5, 762.5)
+scale = Vector2(2337, 737)
 texture = SubResource("CanvasTexture_1elys")
 script = ExtResource("3_jyhfs")
 
 [node name="spawnComponent" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(571, 433)
+position = Vector2(871, 571)
 left_edge = -500
 right_edge = 500
 fishes = Array[PackedScene]([ExtResource("5_tbgi4")])
