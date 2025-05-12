@@ -179,6 +179,7 @@ size_flags_vertical = 3
 text = "Back"
 
 [node name="waterShader" parent="." instance=ExtResource("2_dftu7")]
+z_index = 10
 material = SubResource("ShaderMaterial_wwcsp")
 position = Vector2(978.125, 553.875)
 scale = Vector2(1991.75, 1164.25)

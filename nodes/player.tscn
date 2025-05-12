@@ -1,24 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://kyv8vx6ntb8s"]
+[gd_scene load_steps=4 format=3 uid="uid://kyv8vx6ntb8s"]
 
 [ext_resource type="Script" uid="uid://o63u6p4bhfns" path="res://nodes/player.gd" id="1_bms3g"]
-[ext_resource type="Texture2D" uid="uid://b6ifsx6vy7h2h" path="res://icon.svg" id="1_u63mc"]
+[ext_resource type="Texture2D" uid="uid://dva4tkpv6eyev" path="res://assets/bátur með dúddda.png" id="2_me0cc"]
 [ext_resource type="PackedScene" uid="uid://u2tnc6x8pm77" path="res://nodes/spear.tscn" id="3_me0cc"]
-[ext_resource type="Texture2D" uid="uid://bw828h46l0sp5" path="res://assets/bátur.png" id="4_hqdnm"]
 
 [node name="player" type="Node2D"]
 script = ExtResource("1_bms3g")
 availableItems = Array[int]([0])
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(-6, -97)
-texture = ExtResource("1_u63mc")
-
-[node name="Bátur" type="Sprite2D" parent="."]
-position = Vector2(22, -202)
-texture = ExtResource("4_hqdnm")
-
 [node name="items" type="Node2D" parent="."]
 
+[node name="BáturMeðDúddda" type="Sprite2D" parent="items"]
+position = Vector2(-5, -202)
+texture = ExtResource("2_me0cc")
+
 [node name="spear" parent="items" instance=ExtResource("3_me0cc")]
-position = Vector2(0, -167)
+position = Vector2(-34, -150)
 throw_force = 10.0
