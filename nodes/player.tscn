@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://kyv8vx6ntb8s"]
+[gd_scene load_steps=4 format=3 uid="uid://kyv8vx6ntb8s"]
 
 [ext_resource type="Script" uid="uid://o63u6p4bhfns" path="res://nodes/player.gd" id="1_bms3g"]
 [ext_resource type="Texture2D" uid="uid://b6ifsx6vy7h2h" path="res://icon.svg" id="1_u63mc"]
+[ext_resource type="PackedScene" uid="uid://u2tnc6x8pm77" path="res://nodes/spear.tscn" id="3_me0cc"]
 
 [node name="player" type="Node2D"]
 script = ExtResource("1_bms3g")
@@ -16,4 +17,8 @@ modulate = Color(0.171724, 0.240569, 0.114445, 1)
 scale = Vector2(5.36719, 1.01562)
 texture = ExtResource("1_u63mc")
 
-[node name="items" type="Node" parent="."]
+[node name="items" type="Node2D" parent="."]
+
+[node name="spear" parent="items" instance=ExtResource("3_me0cc")]
+position = Vector2(0, -167)
+throw_force = 10.0

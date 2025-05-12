@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmsp0jhx7uijx"]
+
+[ext_resource type="Script" uid="uid://71cgj2lpfao1" path="res://components/spear_component.gd" id="1_m8umk"]
+[ext_resource type="Texture2D" uid="uid://b6ifsx6vy7h2h" path="res://icon.svg" id="2_iqvtk"]
+[ext_resource type="PackedScene" uid="uid://lvaymwdmerbq" path="res://components/health_component.tscn" id="3_3oxom"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kvbwv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t6vq1"]
+size = Vector2(4, 54.25)
+
+[node name="spearPhysics" type="RigidBody2D" groups=["item", "spear"]]
+physics_material_override = SubResource("PhysicsMaterial_kvbwv")
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 32)
+can_sleep = false
+script = ExtResource("1_m8umk")
+
+[node name="stick" type="Sprite2D" parent="."]
+modulate = Color(0.623201, 0.411766, 0.316446, 1)
+scale = Vector2(0.0261151, 0.515146)
+texture = ExtResource("2_iqvtk")
+
+[node name="tip" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0.270588, 1)
+position = Vector2(0, 32)
+scale = Vector2(0.0456119, -0.0768935)
+texture = ExtResource("2_iqvtk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_t6vq1")
+
+[node name="healthComponent" parent="." instance=ExtResource("3_3oxom")]
+health = 1
+
+[connection signal="healthZero" from="healthComponent" to="." method="_on_health_component_health_zero"]

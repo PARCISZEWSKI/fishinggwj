@@ -1,3 +1,7 @@
 {
-    "godotTools.editorPath.godot4": "/home/anto/Godot/godot4"
+    "godotTools.editorPath.godot4": "/home/anto/Godot/godot4",
+    "files.exclude": {
+        "**/*.tscn": true,
+        "**/*.uid": true
+    }
 }

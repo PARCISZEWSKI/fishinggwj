@@ -1,35 +1,36 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmsp0jhx7uijx"]
+[gd_scene load_steps=4 format=3 uid="uid://u2tnc6x8pm77"]
 
-[ext_resource type="Script" uid="uid://71cgj2lpfao1" path="res://nodes/spear.gd" id="1_kvbwv"]
+[ext_resource type="Script" uid="uid://dxofn5a4yvwjk" path="res://nodes/spear.gd" id="1_kvbwv"]
 [ext_resource type="Texture2D" uid="uid://b6ifsx6vy7h2h" path="res://icon.svg" id="1_py0la"]
-[ext_resource type="PackedScene" uid="uid://lvaymwdmerbq" path="res://components/health_component.tscn" id="1_t6vq1"]
+[ext_resource type="PackedScene" uid="uid://dmsp0jhx7uijx" path="res://components/spear_component.tscn" id="2_kvbwv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t6vq1"]
-size = Vector2(4, 52.5)
-
-[node name="spear" type="RigidBody2D" groups=["item", "spear"]]
-rotation = 1.5708
+[node name="spear" type="Node2D"]
 script = ExtResource("1_kvbwv")
-
-[node name="stick" type="Sprite2D" parent="."]
-modulate = Color(0.623201, 0.411766, 0.316446, 1)
-scale = Vector2(0.0261151, 0.515146)
-texture = ExtResource("1_py0la")
-
-[node name="tip" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 0.270588, 1)
-position = Vector2(0, 32)
-scale = Vector2(0.0456119, -0.0768935)
-texture = ExtResource("1_py0la")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 10.75)
-shape = SubResource("RectangleShape2D_t6vq1")
-
-[node name="healthComponent" parent="." instance=ExtResource("1_t6vq1")]
-health = 1
+spearPhysics = ExtResource("2_kvbwv")
+oscillation_speed = 5.0
 
 [node name="castCharge" type="Timer" parent="."]
 autostart = true
 
-[connection signal="healthZero" from="healthComponent" to="." method="_on_health_component_health_zero"]
+[node name="chargeBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = -107.0
+offset_top = -2.0
+offset_right = -64.0
+offset_bottom = 31.0
+rotation = -1.57537
+step = 0.005
+show_percentage = false
+
+[node name="visual" type="Node2D" parent="."]
+
+[node name="stick" type="Sprite2D" parent="visual"]
+modulate = Color(0.623201, 0.411766, 0.316446, 1)
+scale = Vector2(0.0261151, 0.515146)
+texture = ExtResource("1_py0la")
+
+[node name="tip" type="Sprite2D" parent="visual"]
+modulate = Color(1, 1, 0.270588, 1)
+position = Vector2(0, 32)
+scale = Vector2(0.0456119, -0.0768935)
+texture = ExtResource("1_py0la")
