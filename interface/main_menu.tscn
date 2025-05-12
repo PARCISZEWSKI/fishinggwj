@@ -21,7 +21,7 @@ shader_parameter/fast_noise = SubResource("NoiseTexture2D_g8y3y")
 shader_parameter/speed = Vector2(0.03, 0.07)
 shader_parameter/wave_strength = 1.0
 shader_parameter/scale_y = 0.0
-shader_parameter/y_zoom = 0.466507
+shader_parameter/y_zoom = 0.318631
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_wwcsp")
@@ -178,8 +178,8 @@ text = "Back"
 
 [node name="waterShader" parent="." instance=ExtResource("2_dftu7")]
 material = SubResource("ShaderMaterial_wwcsp")
-position = Vector2(573.125, 330.875)
-scale = Vector2(1181.75, 718.25)
+position = Vector2(978.125, 553.875)
+scale = Vector2(1991.75, 1164.25)
 
 [connection signal="button_down" from="menu/start" to="." method="_on_start_button_down"]
 [connection signal="button_down" from="menu/settings" to="." method="_on_settings_button_down"]
