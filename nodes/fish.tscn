@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://3jpb3qgykne6"]
+
+[ext_resource type="Script" uid="uid://c51ge6ussp3sm" path="res://nodes/fish.gd" id="1_e6jyy"]
+[ext_resource type="Texture2D" uid="uid://bde6vrmvi8drk" path="res://assets/Bass.png" id="2_ju88t"]
+[ext_resource type="Texture2D" uid="uid://xwpn26hceopw" path="res://assets/Bass Outline.png" id="3_p743a"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e6jyy"]
+radius = 6.96578
+height = 20.7632
+
+[node name="fish" type="Area2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_e6jyy")
+
+[node name="visual" type="Node2D" parent="."]
+
+[node name="bass" type="Sprite2D" parent="visual"]
+texture = ExtResource("2_ju88t")
+
+[node name="outline" type="Sprite2D" parent="visual/bass"]
+texture = ExtResource("3_p743a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.333333, 0.333333)
+rotation = -1.54952
+shape = SubResource("CapsuleShape2D_e6jyy")

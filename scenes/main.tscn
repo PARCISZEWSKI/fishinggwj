@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b76s64dbrngm4"]
+[gd_scene load_steps=11 format=3 uid="uid://b76s64dbrngm4"]
 
 [ext_resource type="Texture2D" uid="uid://b6ifsx6vy7h2h" path="res://icon.svg" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://kyv8vx6ntb8s" path="res://nodes/player.tscn" id="1_o5qli"]
 [ext_resource type="Shader" uid="uid://2jyk63bthwvy" path="res://assets/water_shader.gdshader" id="2_sugp2"]
 [ext_resource type="Script" uid="uid://b1afqbou4mmu3" path="res://assets/water_shader.gd" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://3jpb3qgykne6" path="res://nodes/fish.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://cqswwvxdx7x5w" path="res://components/spawn_component.tscn" id="6_tefeu"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_i74xo"]
 
@@ -41,3 +43,12 @@ position = Vector2(584, 503.5)
 scale = Vector2(1194, 317)
 texture = SubResource("CanvasTexture_1elys")
 script = ExtResource("3_jyhfs")
+
+[node name="fish" parent="." instance=ExtResource("5_tbgi4")]
+position = Vector2(476, 430)
+
+[node name="spawnComponent" parent="." instance=ExtResource("6_tefeu")]
+position = Vector2(571, 433)
+left_edge = -500
+right_edge = 500
+fishes = Array[PackedScene]([ExtResource("5_tbgi4")])

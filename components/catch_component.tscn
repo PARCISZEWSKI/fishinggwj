@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bofj75eedh5vq"]
+
+[ext_resource type="Script" uid="uid://c6arn8myab5oo" path="res://components/catch_component.gd" id="1_ci3wj"]
+
+[node name="CatchComponent" type="Node2D"]
+script = ExtResource("1_ci3wj")

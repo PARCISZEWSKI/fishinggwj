@@ -9,9 +9,6 @@ script = ExtResource("1_kvbwv")
 spearPhysics = ExtResource("2_kvbwv")
 oscillation_speed = 5.0
 
-[node name="castCharge" type="Timer" parent="."]
-autostart = true
-
 [node name="chargeBar" type="ProgressBar" parent="."]
 visible = false
 offset_left = -107.0
