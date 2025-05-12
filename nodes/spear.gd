@@ -12,7 +12,6 @@ var oscillation_time: float = 0.0 ##Tracks project time #FIXME: need to be reset
 var oscillation: float ##Output oscillation between [0, 1]
 
 #References to children
-@onready var castCharge: Timer = $castCharge
 @onready var sprite: Node2D = $visual
 @onready var chargeBar:ProgressBar = $chargeBar
 
