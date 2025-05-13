@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dpkcayi0yivcl"]
+[gd_scene load_steps=12 format=3 uid="uid://dpkcayi0yivcl"]
 
 [ext_resource type="Script" uid="uid://dpei8mjm7j35r" path="res://interface/game_menu.gd" id="1_rvkir"]
 [ext_resource type="Texture2D" uid="uid://b48kcaieiyha" path="res://assets/fullscreen_icon.png" id="1_toyw5"]
-[ext_resource type="PackedScene" uid="uid://hijht0dsuvgo" path="res://interface/main_menu.tscn" id="2_jaloq"]
 [ext_resource type="Texture2D" uid="uid://cutltocyoo061" path="res://assets/Minimize_icon.png" id="2_rvkir"]
 [ext_resource type="Theme" uid="uid://cfkxwyulff85" path="res://assets/theme.tres" id="3_jaloq"]
 [ext_resource type="Shader" uid="uid://2jyk63bthwvy" path="res://assets/water_shader.gdshader" id="4_2q8wo"]
@@ -31,7 +30,6 @@ shader_parameter/y_zoom = 0.385543
 
 [node name="gameMenu" type="CanvasLayer"]
 script = ExtResource("1_rvkir")
-mainMenu = ExtResource("2_jaloq")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.252028, 0.252028, 0.252028, 0.407843)
@@ -179,6 +177,7 @@ scale = Vector2(2272, 1408)
 texture = SubResource("CanvasTexture_1elys")
 script = ExtResource("5_7vy0k")
 
+[connection signal="toggled" from="TextureButton" to="." method="_on_texture_button_toggled"]
 [connection signal="value_changed" from="settings/master" to="." method="_on_master_value_changed"]
 [connection signal="value_changed" from="settings/music" to="." method="_on_music_value_changed"]
 [connection signal="value_changed" from="settings/sfx" to="." method="_on_sfx_value_changed"]

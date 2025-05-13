@@ -2,7 +2,7 @@ extends Node
 
 @export_group("Scene Control")
 @export var skipMenu: bool = false ##Turn to true to skip main menu, used for testing purposes
-@export var startLevel: PackedScene ##Level to load when pressing the start button
+var startLevel: PackedScene = load("res://scenes/main.tscn") ##Level to load when pressing the start button
 
 @export_group("Audio")
 @export var clickSound: AudioStream ##Audio stream when player click audio

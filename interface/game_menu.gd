@@ -1,7 +1,7 @@
 extends CanvasLayer
 @onready var windowToggle: TextureButton = $TextureButton
 
-@export var mainMenu: PackedScene
+var mainMenu: PackedScene = load("res://interface/main_menu.tscn") #Aid fix because of circular dependacy
 #References to audio bus indexes requiered for volume control
 @onready var masterBus: = AudioServer.get_bus_index("Master")
 @onready var sfxBus: = AudioServer.get_bus_index("Effects")
@@ -39,3 +39,10 @@ func _on_music_value_changed(value:float) -> void:
 
 func _on_master_value_changed(value:float) -> void:
 	AudioServer.set_bus_volume_linear(masterBus, value)
+
+
+func _on_texture_button_toggled(toggled_on:bool) -> void:
+	if toggled_on:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
