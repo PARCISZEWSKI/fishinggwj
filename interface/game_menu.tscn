@@ -1,0 +1,186 @@
+[gd_scene load_steps=13 format=3 uid="uid://dpkcayi0yivcl"]
+
+[ext_resource type="Script" uid="uid://dpei8mjm7j35r" path="res://interface/game_menu.gd" id="1_rvkir"]
+[ext_resource type="Texture2D" uid="uid://b48kcaieiyha" path="res://assets/fullscreen_icon.png" id="1_toyw5"]
+[ext_resource type="PackedScene" uid="uid://hijht0dsuvgo" path="res://interface/main_menu.tscn" id="2_jaloq"]
+[ext_resource type="Texture2D" uid="uid://cutltocyoo061" path="res://assets/Minimize_icon.png" id="2_rvkir"]
+[ext_resource type="Theme" uid="uid://cfkxwyulff85" path="res://assets/theme.tres" id="3_jaloq"]
+[ext_resource type="Shader" uid="uid://2jyk63bthwvy" path="res://assets/water_shader.gdshader" id="4_2q8wo"]
+[ext_resource type="Script" uid="uid://b1afqbou4mmu3" path="res://assets/water_shader.gd" id="5_7vy0k"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_eb6dy"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_i74xo"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g8y3y"]
+width = 100
+height = 100
+seamless = true
+noise = SubResource("FastNoiseLite_i74xo")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_trceg"]
+shader = ExtResource("4_2q8wo")
+shader_parameter/CAST_COLOR = Color(9.40054e-09, 0.0118882, 0.0363577, 0)
+shader_parameter/fast_noise = SubResource("NoiseTexture2D_g8y3y")
+shader_parameter/speed = Vector2(0.03, 0.07)
+shader_parameter/wave_strength = 2.0
+shader_parameter/scale_y = 100.0
+shader_parameter/y_zoom = 0.385543
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_1elys"]
+
+[node name="gameMenu" type="CanvasLayer"]
+script = ExtResource("1_rvkir")
+mainMenu = ExtResource("2_jaloq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.252028, 0.252028, 0.252028, 0.407843)
+offset_left = -66.0
+offset_top = -106.0
+offset_right = 2036.0
+offset_bottom = 1277.0
+texture = SubResource("CanvasTexture_eb6dy")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+modulate = Color(4.09111e-07, 0.409504, 0.410161, 1)
+self_modulate = Color(0, 0.396861, 0.396861, 1)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -166.0
+offset_top = 60.0
+offset_right = -15.9999
+offset_bottom = 210.0
+grow_horizontal = 0
+scale = Vector2(0.6, 0.6)
+toggle_mode = true
+texture_normal = ExtResource("1_toyw5")
+texture_pressed = ExtResource("2_rvkir")
+
+[node name="settings" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.0
+offset_top = -144.0
+offset_right = 162.0
+offset_bottom = 201.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_jaloq")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 46
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="pillow1" type="Control" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.85
+
+[node name="Label4" type="Label" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "master"
+horizontal_alignment = 1
+
+[node name="pillow6" type="Control" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="master" type="HSlider" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.001
+value = 0.8
+
+[node name="Label2" type="Label" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "music"
+horizontal_alignment = 1
+
+[node name="pillow4" type="Control" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="music" type="HSlider" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.001
+value = 0.8
+
+[node name="pillow2" type="Control" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="Label3" type="Label" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "sound"
+horizontal_alignment = 1
+
+[node name="pillow5" type="Control" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="sfx" type="HSlider" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.001
+value = 0.8
+
+[node name="pillow3" type="Control" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="back" type="Button" parent="settings"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Resume"
+
+[node name="pillow7" type="Control" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="back2" type="Button" parent="settings"]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Quit"
+
+[node name="waterShader" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_trceg")
+position = Vector2(887, 580)
+scale = Vector2(2272, 1408)
+texture = SubResource("CanvasTexture_1elys")
+script = ExtResource("5_7vy0k")
+
+[connection signal="value_changed" from="settings/master" to="." method="_on_master_value_changed"]
+[connection signal="value_changed" from="settings/music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="settings/sfx" to="." method="_on_sfx_value_changed"]
+[connection signal="button_down" from="settings/back" to="." method="_on_back_button_down"]
+[connection signal="button_down" from="settings/back2" to="." method="_on_back_2_button_down"]

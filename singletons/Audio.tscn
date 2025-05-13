@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://cu6rdmha5hman" path="res://singletons/Audio.gd" id="1_0agyl"]
 
 [node name="Audio" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_0agyl")

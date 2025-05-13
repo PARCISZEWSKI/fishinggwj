@@ -1,17 +1,22 @@
-[gd_scene load_steps=11 format=3 uid="uid://b76s64dbrngm4"]
+[gd_scene load_steps=16 format=3 uid="uid://b76s64dbrngm4"]
 
+[ext_resource type="Script" uid="uid://iluebfclh7sc" path="res://scenes/main.gd" id="1_choun"]
 [ext_resource type="Texture2D" uid="uid://b6ifsx6vy7h2h" path="res://icon.svg" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://kyv8vx6ntb8s" path="res://nodes/player.tscn" id="1_o5qli"]
 [ext_resource type="Shader" uid="uid://2jyk63bthwvy" path="res://assets/water_shader.gdshader" id="2_sugp2"]
 [ext_resource type="Script" uid="uid://b1afqbou4mmu3" path="res://assets/water_shader.gd" id="3_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://b66hmi16km5b5" path="res://assets/mountain_back.png" id="4_85g3d"]
+[ext_resource type="Texture2D" uid="uid://bu3082hkksea1" path="res://assets/mountain_mid.png" id="5_choun"]
 [ext_resource type="PackedScene" uid="uid://3jpb3qgykne6" path="res://nodes/fish.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://cqswwvxdx7x5w" path="res://components/spawn_component.tscn" id="6_tefeu"]
+[ext_resource type="Texture2D" uid="uid://cgy3sc0a4emi1" path="res://assets/mountain_front.png" id="6_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://dpkcayi0yivcl" path="res://interface/game_menu.tscn" id="11_ya4ey"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_i74xo"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g8y3y"]
-width = 500
-height = 500
+width = 100
+height = 100
 seamless = true
 noise = SubResource("FastNoiseLite_i74xo")
 
@@ -22,30 +27,47 @@ shader_parameter/fast_noise = SubResource("NoiseTexture2D_g8y3y")
 shader_parameter/speed = Vector2(0.03, 0.07)
 shader_parameter/wave_strength = 2.0
 shader_parameter/scale_y = 100.0
-shader_parameter/y_zoom = 1.0
+shader_parameter/y_zoom = 0.239392
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_1elys"]
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_choun")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1.42888e-08, 0.0245006, 0.0572112, 0.513726)
-position = Vector2(994, 270)
-scale = Vector2(15.7734, 4.46875)
+position = Vector2(948.249, 529.5)
+scale = Vector2(16.4883, 10.5391)
 texture = ExtResource("1_jyhfs")
 
-[node name="player" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(881, 454)
-
-[node name="waterShader" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_tbgi4")
-position = Vector2(854.5, 762.5)
-scale = Vector2(2337, 737)
-texture = SubResource("CanvasTexture_1elys")
-script = ExtResource("3_jyhfs")
-
 [node name="spawnComponent" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(871, 571)
+position = Vector2(871, 724)
 left_edge = -500
 right_edge = 500
 fishes = Array[PackedScene]([ExtResource("5_tbgi4")])
+
+[node name="MountainBack" type="Sprite2D" parent="."]
+position = Vector2(961, 608)
+texture = ExtResource("4_85g3d")
+
+[node name="MountainMid" type="Sprite2D" parent="."]
+position = Vector2(961, 608)
+texture = ExtResource("5_choun")
+
+[node name="MountainFront" type="Sprite2D" parent="."]
+position = Vector2(961, 608)
+texture = ExtResource("6_ya4ey")
+
+[node name="player" parent="." instance=ExtResource("1_o5qli")]
+position = Vector2(815, 622)
+
+[node name="waterShader" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_tbgi4")
+position = Vector2(854.5, 931.5)
+scale = Vector2(2337, 705)
+texture = SubResource("CanvasTexture_1elys")
+script = ExtResource("3_jyhfs")
+
+[node name="gameMenu" parent="." instance=ExtResource("11_ya4ey")]
+process_mode = 3
+visible = false
