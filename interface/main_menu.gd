@@ -16,7 +16,7 @@ extends Node
 @onready var musicSlide = $settings/music
 @onready var menu: = $menu
 @onready var settingsMenu: = $settings
-
+@onready var windowToggle: = $TextureButton
 #References to audio bus indexes requiered for volume control
 @onready var masterBus: = AudioServer.get_bus_index("Master")
 @onready var sfxBus: = AudioServer.get_bus_index("Effects")
@@ -26,7 +26,14 @@ extends Node
 func _ready() -> void:
 	if skipMenu: #Skips menu if variable set to true, shortcut for testing
 		get_tree().change_scene_to_packed(startLevel)
+	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
+		windowToggle.button_pressed = true
 
+# func _process(_delta: float) -> void: #FIXME: Ensure that the fullscreen button displays the right icon depeding on window mode
+# 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
+# 		windowToggle.button_pressed = true
+# 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
+# 		windowToggle.button_pressed = false
 
 func _on_start_button_down() -> void: ##Starts level on start button press
 	get_tree().change_scene_to_packed(startLevel)
@@ -55,3 +62,10 @@ func _on_back_button_down() -> void:
 	menu.visible = true
 	settingsMenu.visible = false
 	Audio.play_sound(clickSound, "Effects")
+
+
+func _on_texture_button_toggled(toggled_on:bool) -> void: #Controls if we are in fullscreen or not
+	if toggled_on:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)

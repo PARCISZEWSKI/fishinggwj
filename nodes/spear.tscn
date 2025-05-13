@@ -1,13 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://u2tnc6x8pm77"]
+[gd_scene load_steps=11 format=3 uid="uid://u2tnc6x8pm77"]
 
 [ext_resource type="Script" uid="uid://dxofn5a4yvwjk" path="res://nodes/spear.gd" id="1_kvbwv"]
 [ext_resource type="Texture2D" uid="uid://b6ifsx6vy7h2h" path="res://icon.svg" id="1_py0la"]
 [ext_resource type="PackedScene" uid="uid://dmsp0jhx7uijx" path="res://components/spear_component.tscn" id="2_kvbwv"]
+[ext_resource type="AudioStream" uid="uid://bhkxha873p5bt" path="res://assets/audio/Huegh2.wav" id="3_xfj8g"]
+[ext_resource type="AudioStream" uid="uid://fyjbenl61lim" path="res://assets/audio/Guegh1.wav" id="4_62smr"]
+[ext_resource type="AudioStream" uid="uid://cn7geep21dejf" path="res://assets/audio/Huee1.wav" id="5_8bevu"]
+[ext_resource type="AudioStream" uid="uid://c7xjgrfohtjmv" path="res://assets/audio/huee2.wav" id="6_yi2k3"]
+[ext_resource type="AudioStream" uid="uid://bjhom22vbfnqy" path="res://assets/audio/Huee3.wav" id="7_pi7o2"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rl61q"]
+streams_count = 2
+stream_0/stream = ExtResource("3_xfj8g")
+stream_1/stream = ExtResource("4_62smr")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_w2pan"]
+streams_count = 3
+stream_0/stream = ExtResource("5_8bevu")
+stream_1/stream = ExtResource("6_yi2k3")
+stream_2/stream = ExtResource("7_pi7o2")
 
 [node name="spear" type="Node2D"]
 script = ExtResource("1_kvbwv")
 spearPhysics = ExtResource("2_kvbwv")
 oscillation_speed = 5.0
+soundReady = SubResource("AudioStreamRandomizer_rl61q")
+soundThrow = SubResource("AudioStreamRandomizer_w2pan")
 
 [node name="chargeBar" type="ProgressBar" parent="."]
 visible = false

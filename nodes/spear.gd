@@ -4,8 +4,8 @@ extends Node2D
 @export var throw_force: float = 105 ##Force spear is throw with
 @export var spearPhysics: PackedScene ##Scene to be loaded
 @export var oscillation_speed: float = PI/2.0 ##Bigger number -> faster
-
-
+@export var soundReady: AudioStream
+@export var soundThrow: AudioStream
 
 
 var direction: Vector2 ##Direction to mouseposition
@@ -44,6 +44,8 @@ func _process(delta: float) -> void:
 			if Input.is_action_just_pressed("primary"):
 				current_state = SPEARSTATUS.charging
 				chargeBar.visible = true
+				var audio_player = Audio.play_sound_2d(soundReady, "Effects") #FIXME: Mismunandi hljóð fyrir ready og að byrja að charge-a
+				audio_player.position = global_position
 
 		SPEARSTATUS.charging: #Charging spear throw
 			var mouse_pos = get_global_mouse_position()
@@ -63,10 +65,14 @@ func _process(delta: float) -> void:
 			if Input.is_action_just_released("primary"):
 				chargeBar.visible = false
 				useItem() 
+				var audio_player = Audio.play_sound_2d(soundThrow, "Effects")
+				audio_player.position = global_position
 
 		SPEARSTATUS.thrown: 
 			if Input.is_action_just_pressed("primary"): #Click again to reset
 				resetItem()
+				var audio_player = Audio.play_sound_2d(soundReady, "Effects")
+				audio_player.position = global_position
 		#FIXME: Implement return state where spears is dragged back towards ship and then it is reset
 
 func useItem() -> void: ##Spawn and fires a spearPhysics spear

@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://hijht0dsuvgo"]
+[gd_scene load_steps=12 format=3 uid="uid://hijht0dsuvgo"]
 
 [ext_resource type="Theme" uid="uid://cfkxwyulff85" path="res://assets/theme.tres" id="1_g8ogf"]
 [ext_resource type="Script" uid="uid://b7sbeegio13yy" path="res://interface/main_menu.gd" id="1_wwcsp"]
 [ext_resource type="PackedScene" uid="uid://hsux5oifdyix" path="res://assets/water_shader.tscn" id="2_dftu7"]
 [ext_resource type="PackedScene" uid="uid://b76s64dbrngm4" path="res://scenes/main.tscn" id="2_i5udr"]
-[ext_resource type="AudioStream" uid="uid://w8wresqasftc" path="res://assets/audio/Beep.wav" id="3_bjm56"]
+[ext_resource type="AudioStream" uid="uid://bxt36m8we87f8" path="res://assets/audio/Boop.wav" id="3_bjm56"]
 [ext_resource type="Shader" uid="uid://2jyk63bthwvy" path="res://assets/water_shader.gdshader" id="3_rahlh"]
+[ext_resource type="Texture2D" uid="uid://b48kcaieiyha" path="res://assets/fullscreen_icon.png" id="7_i2iwl"]
+[ext_resource type="Texture2D" uid="uid://cutltocyoo061" path="res://assets/Minimize_icon.png" id="8_sra6w"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_i74xo"]
 
@@ -184,9 +186,26 @@ material = SubResource("ShaderMaterial_wwcsp")
 position = Vector2(978.125, 553.875)
 scale = Vector2(1991.75, 1164.25)
 
+[node name="TextureButton" type="TextureButton" parent="."]
+modulate = Color(4.09111e-07, 0.409504, 0.410161, 1)
+self_modulate = Color(0, 0.396861, 0.396861, 1)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -166.0
+offset_top = 60.0
+offset_right = -15.9999
+offset_bottom = 210.0
+grow_horizontal = 0
+scale = Vector2(0.6, 0.6)
+toggle_mode = true
+texture_normal = ExtResource("7_i2iwl")
+texture_pressed = ExtResource("8_sra6w")
+
 [connection signal="button_down" from="menu/start" to="." method="_on_start_button_down"]
 [connection signal="button_down" from="menu/settings" to="." method="_on_settings_button_down"]
 [connection signal="value_changed" from="settings/master" to="." method="_on_master_value_changed"]
 [connection signal="value_changed" from="settings/music" to="." method="_on_music_value_changed"]
 [connection signal="value_changed" from="settings/sfx" to="." method="_on_sfx_value_changed"]
 [connection signal="button_down" from="settings/back" to="." method="_on_back_button_down"]
+[connection signal="toggled" from="TextureButton" to="." method="_on_texture_button_toggled"]
