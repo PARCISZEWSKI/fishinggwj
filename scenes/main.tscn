@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://b76s64dbrngm4"]
+[gd_scene load_steps=22 format=3 uid="uid://b76s64dbrngm4"]
 
-[ext_resource type="Script" uid="uid://iluebfclh7sc" path="res://scenes/main.gd" id="1_choun"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_choun"]
 [ext_resource type="Texture2D" uid="uid://b6ifsx6vy7h2h" path="res://icon.svg" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://kyv8vx6ntb8s" path="res://nodes/player.tscn" id="1_o5qli"]
 [ext_resource type="Shader" uid="uid://2jyk63bthwvy" path="res://assets/water_shader.gdshader" id="2_sugp2"]
@@ -11,6 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://cqswwvxdx7x5w" path="res://components/spawn_component.tscn" id="6_tefeu"]
 [ext_resource type="Texture2D" uid="uid://dqqwgyik2f1t3" path="res://assets/mountain_mid2.png" id="7_trceg"]
 [ext_resource type="PackedScene" uid="uid://dpkcayi0yivcl" path="res://interface/game_menu.tscn" id="11_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://bde6vrmvi8drk" path="res://assets/Bass.png" id="12_eb6dy"]
+[ext_resource type="Script" uid="uid://bvb2fhx80l0m0" path="res://singletons/currency_system.gd" id="12_trceg"]
+[ext_resource type="Texture2D" uid="uid://c606m5eerkeqh" path="res://assets/book_01d.png" id="13_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://cd0b0td1lxsny" path="res://assets/book_01g.png" id="14_jbj1t"]
+[ext_resource type="Texture2D" uid="uid://ppi80kp8y3pr" path="res://assets/Cross.png" id="16_jbj1t"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_i74xo"]
 
@@ -27,9 +32,11 @@ shader_parameter/fast_noise = SubResource("NoiseTexture2D_g8y3y")
 shader_parameter/speed = Vector2(0.03, 0.07)
 shader_parameter/wave_strength = 2.0
 shader_parameter/scale_y = 100.0
-shader_parameter/y_zoom = 0.385543
+shader_parameter/y_zoom = 0.466507
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_1elys"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jkv2x"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_choun")
@@ -71,3 +78,71 @@ script = ExtResource("3_jyhfs")
 [node name="gameMenu" parent="." instance=ExtResource("11_ya4ey")]
 process_mode = 3
 visible = false
+
+[node name="Currency" type="CanvasLayer" parent="."]
+script = ExtResource("12_trceg")
+
+[node name="history_button" type="TextureButton" parent="Currency"]
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 51.0
+offset_bottom = 51.0
+texture_normal = ExtResource("13_jkv2x")
+texture_pressed = ExtResource("14_jbj1t")
+texture_hover = ExtResource("14_jbj1t")
+
+[node name="bass_caught" type="Sprite2D" parent="Currency"]
+position = Vector2(89, 29)
+scale = Vector2(4, 4)
+texture = ExtResource("12_eb6dy")
+
+[node name="bass_number" type="Label" parent="Currency"]
+offset_left = 127.0
+offset_top = 7.0
+offset_right = 170.0
+offset_bottom = 74.0
+theme_override_font_sizes/font_size = 32
+
+[node name="history" type="TextureRect" parent="Currency"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.5
+offset_top = -346.5
+offset_right = 600.5
+offset_bottom = 346.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_jkv2x")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Currency/history"]
+layout_mode = 0
+offset_right = 463.0
+offset_bottom = 348.0
+theme_override_font_sizes/normal_font_size = 32
+text = "Fish: Bass"
+fit_content = true
+
+[node name="exit_history" type="TextureButton" parent="Currency/history"]
+process_mode = 3
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.961
+anchor_top = 0.066
+anchor_right = 0.961
+anchor_bottom = 0.066
+offset_left = -28.661
+offset_top = -30.238
+offset_right = 29.339
+offset_bottom = 29.762
+texture_normal = ExtResource("16_jbj1t")
+texture_pressed = ExtResource("16_jbj1t")
+texture_hover = ExtResource("16_jbj1t")
+
+[connection signal="pressed" from="Currency/history_button" to="Currency" method="_on_history_button_pressed"]
+[connection signal="pressed" from="Currency/history/exit_history" to="Currency" method="_on_exit_history_pressed"]

@@ -32,6 +32,8 @@ func _on_timer_timeout():  #Change direction randomly
 		$visual/bass/outline.flip_h = direction.x < 0
 
 func _on_body_entered(body) -> void:
+	Currency.fish_caught += 1
+	Currency.bass_caught += 1
 	queue_free()
 	var audio_player = Audio.play_sound_2d(soundDeath, "Effects")
 	audio_player.position = global_position
