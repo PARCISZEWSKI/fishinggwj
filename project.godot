@@ -23,6 +23,7 @@ buses/default_bus_layout="res://assets/default_bus_layout.tres"
 
 Enums="*res://singletons/enums.gd"
 Audio="*res://singletons/Audio.tscn"
+SupplyTimer="*res://singletons/supply_timer.tscn"
 
 [display]
 

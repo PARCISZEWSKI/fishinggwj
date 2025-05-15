@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx3kqnmr7bi4j"]
+
+[ext_resource type="Script" uid="uid://ow6tbvyktseu" path="res://singletons/supply_timer.gd" id="1_db16w"]
+
+[node name="SupplyTimer" type="Timer"]
+wait_time = 100.0
+script = ExtResource("1_db16w")
+supply_left = 10.0
+
+[connection signal="timeout" from="." to="." method="_on_timeout"]

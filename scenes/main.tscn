@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bjl6bwjm8yy81" path="res://assets/bottom_mid.png" id="9_0ld40"]
 [ext_resource type="PackedScene" uid="uid://dpkcayi0yivcl" path="res://interface/game_menu.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://o0uut8pfod8e" path="res://interface/collectibles.tscn" id="12_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://brtkq8aoijft1" path="res://interface/game_over_timer.tscn" id="15_jkv2x"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_i74xo"]
 
@@ -85,3 +86,9 @@ process_mode = 3
 visible = false
 
 [node name="collectibles" parent="." instance=ExtResource("12_eb6dy")]
+
+[node name="GameOverTimer" parent="." instance=ExtResource("15_jkv2x")]
+offset_left = 746.0
+offset_top = 37.0
+offset_right = 746.0
+offset_bottom = 37.0
