@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://o0uut8pfod8e"]
+[gd_scene load_steps=8 format=3 uid="uid://o0uut8pfod8e"]
 
 [ext_resource type="Script" uid="uid://doyy4hj4ot7hi" path="res://interface/collectibles.gd" id="1_p254c"]
 [ext_resource type="Texture2D" uid="uid://c606m5eerkeqh" path="res://assets/book_01d.png" id="2_h35mn"]
 [ext_resource type="Texture2D" uid="uid://cd0b0td1lxsny" path="res://assets/book_01g.png" id="3_b85ff"]
 [ext_resource type="Texture2D" uid="uid://bde6vrmvi8drk" path="res://assets/Bass.png" id="4_t61la"]
 [ext_resource type="Texture2D" uid="uid://ppi80kp8y3pr" path="res://assets/Cross.png" id="5_nbugw"]
+[ext_resource type="Texture2D" uid="uid://bb1rae2c26my3" path="res://assets/coin_01d.png" id="6_h35mn"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jkv2x"]
 
@@ -89,6 +90,18 @@ offset_bottom = 29.762
 texture_normal = ExtResource("5_nbugw")
 texture_pressed = ExtResource("5_nbugw")
 texture_hover = ExtResource("5_nbugw")
+
+[node name="krona1" type="Sprite2D" parent="."]
+position = Vector2(32, 86)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_h35mn")
+
+[node name="krona_value" type="Label" parent="."]
+offset_left = 60.0
+offset_top = 61.0
+offset_right = 100.0
+offset_bottom = 106.0
+theme_override_font_sizes/font_size = 32
 
 [connection signal="pressed" from="history_button" to="." method="_on_history_button_pressed"]
 [connection signal="pressed" from="history/exit_history" to="." method="_on_exit_history_pressed"]

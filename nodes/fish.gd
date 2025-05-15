@@ -23,15 +23,17 @@ func _process(delta: float) -> void:
 	#FIXME: Add export variable
 	if position.y < 0 or position.y > get_viewport_rect().size.y:
 		direction.y *= -1  # Reverse y direction
+
 func _exit_tree() -> void:
 	pass
+
 func _on_timer_timeout():  #Change direction randomly
 	direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
 	if direction.x != 0:
 		$visual/bass.flip_h = direction.x < 0
 		$visual/bass/outline.flip_h = direction.x < 0
+
 func _on_body_entered(body) -> void:
-	Currency.fish_caught += 1
 	Currency.bass_caught += 1
 	queue_free()
 	var audio_player = Audio.play_sound_2d(soundDeath, "Effects")
