@@ -30,7 +30,6 @@ func _on_timer_timeout():  #Change direction randomly
 	if direction.x != 0:
 		$visual/bass.flip_h = direction.x < 0
 		$visual/bass/outline.flip_h = direction.x < 0
-
 func _on_body_entered(body) -> void:
 	Currency.fish_caught += 1
 	Currency.bass_caught += 1

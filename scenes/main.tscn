@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://b76s64dbrngm4"]
 
-[ext_resource type="Script" path="res://scenes/main.gd" id="1_choun"]
+[ext_resource type="Script" uid="uid://iluebfclh7sc" path="res://scenes/main.gd" id="1_choun"]
 [ext_resource type="Texture2D" uid="uid://b6ifsx6vy7h2h" path="res://icon.svg" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://kyv8vx6ntb8s" path="res://nodes/player.tscn" id="1_o5qli"]
 [ext_resource type="Shader" uid="uid://2jyk63bthwvy" path="res://assets/water_shader.gdshader" id="2_sugp2"]
@@ -32,7 +32,7 @@ shader_parameter/fast_noise = SubResource("NoiseTexture2D_g8y3y")
 shader_parameter/speed = Vector2(0.03, 0.07)
 shader_parameter/wave_strength = 2.0
 shader_parameter/scale_y = 100.0
-shader_parameter/y_zoom = 0.466507
+shader_parameter/y_zoom = 0.385543
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_1elys"]
 
