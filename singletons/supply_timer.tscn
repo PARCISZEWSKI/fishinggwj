@@ -5,6 +5,5 @@
 [node name="SupplyTimer" type="Timer"]
 wait_time = 100.0
 script = ExtResource("1_db16w")
-supply_left = 10.0
 
 [connection signal="timeout" from="." to="." method="_on_timeout"]

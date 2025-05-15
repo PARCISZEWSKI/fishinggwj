@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://du3bwnt3hbcer"]
+[gd_scene load_steps=18 format=3 uid="uid://du3bwnt3hbcer"]
 
 [ext_resource type="Texture2D" uid="uid://b6ifsx6vy7h2h" path="res://icon.svg" id="1_5u241"]
 [ext_resource type="Script" uid="uid://dxw8rqoxj8cgk" path="res://scenes/shop.gd" id="1_44xle"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://o0uut8pfod8e" path="res://interface/collectibles.tscn" id="12_24it5"]
 [ext_resource type="Texture2D" uid="uid://bw828h46l0sp5" path="res://assets/bátur.png" id="12_44xle"]
 [ext_resource type="PackedScene" uid="uid://dpkcayi0yivcl" path="res://interface/game_menu.tscn" id="12_p0at6"]
+[ext_resource type="PackedScene" uid="uid://brtkq8aoijft1" path="res://interface/game_over_timer.tscn" id="13_24it5"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_5u241"]
 
@@ -28,7 +29,7 @@ shader_parameter/fast_noise = SubResource("NoiseTexture2D_dp3eg")
 shader_parameter/speed = Vector2(0.03, 0.07)
 shader_parameter/wave_strength = 2.0
 shader_parameter/scale_y = 100.0
-shader_parameter/y_zoom = 0.318631
+shader_parameter/y_zoom = 0.385543
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_yuijs"]
 
@@ -99,5 +100,11 @@ offset_right = 1830.0
 offset_bottom = 449.0
 theme_override_font_sizes/font_size = 48
 text = "Selja Fisk"
+
+[node name="GameOverTimer" parent="." instance=ExtResource("13_24it5")]
+offset_left = 960.0
+offset_top = 30.0
+offset_right = 960.0
+offset_bottom = 30.0
 
 [connection signal="pressed" from="sell_fish" to="." method="_on_sell_fish_pressed"]
