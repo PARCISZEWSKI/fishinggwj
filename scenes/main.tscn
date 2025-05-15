@@ -10,25 +10,25 @@
 [ext_resource type="Texture2D" uid="uid://pqnxb37amwqh" path="res://assets/mountain_front2.png" id="6_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://cqswwvxdx7x5w" path="res://components/spawn_component.tscn" id="6_tefeu"]
 [ext_resource type="Texture2D" uid="uid://dqqwgyik2f1t3" path="res://assets/mountain_mid2.png" id="7_trceg"]
+[ext_resource type="Texture2D" uid="uid://damcv0bmipy64" path="res://assets/bottom_back..png" id="8_dp3eg"]
+[ext_resource type="Texture2D" uid="uid://bjl6bwjm8yy81" path="res://assets/bottom_mid.png" id="9_0ld40"]
 [ext_resource type="PackedScene" uid="uid://dpkcayi0yivcl" path="res://interface/game_menu.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://o0uut8pfod8e" path="res://interface/collectibles.tscn" id="12_eb6dy"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_i74xo"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g8y3y"]
-width = 100
-height = 100
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dp3eg"]
 seamless = true
 noise = SubResource("FastNoiseLite_i74xo")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tbgi4"]
 shader = ExtResource("2_sugp2")
 shader_parameter/CAST_COLOR = Color(9.40054e-09, 0.0118882, 0.0363577, 0)
-shader_parameter/fast_noise = SubResource("NoiseTexture2D_g8y3y")
+shader_parameter/fast_noise = SubResource("NoiseTexture2D_dp3eg")
 shader_parameter/speed = Vector2(0.03, 0.07)
 shader_parameter/wave_strength = 2.0
 shader_parameter/scale_y = 100.0
-shader_parameter/y_zoom = 0.385543
+shader_parameter/y_zoom = 0.564474
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_1elys"]
 
@@ -47,17 +47,27 @@ left_edge = -500
 right_edge = 500
 fishes = Array[PackedScene]([ExtResource("5_tbgi4")])
 
-[node name="MountainBack2" type="Sprite2D" parent="."]
+[node name="environment" type="Node2D" parent="."]
+
+[node name="MountainBack2" type="Sprite2D" parent="environment"]
 position = Vector2(962, 551)
 texture = ExtResource("5_ya4ey")
 
-[node name="MountainMid2" type="Sprite2D" parent="."]
+[node name="MountainMid2" type="Sprite2D" parent="environment"]
 position = Vector2(962, 551)
 texture = ExtResource("7_trceg")
 
-[node name="MountainFront2" type="Sprite2D" parent="."]
+[node name="MountainFront2" type="Sprite2D" parent="environment"]
 position = Vector2(962, 551)
 texture = ExtResource("6_eb6dy")
+
+[node name="BottomBack_" type="Sprite2D" parent="environment"]
+position = Vector2(965, 399)
+texture = ExtResource("8_dp3eg")
+
+[node name="BottomMid" type="Sprite2D" parent="environment"]
+position = Vector2(965, 399)
+texture = ExtResource("9_0ld40")
 
 [node name="player" parent="." instance=ExtResource("1_o5qli")]
 position = Vector2(818, 651)

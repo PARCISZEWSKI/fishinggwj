@@ -1,0 +1,88 @@
+[gd_scene load_steps=15 format=3 uid="uid://du3bwnt3hbcer"]
+
+[ext_resource type="Texture2D" uid="uid://b6ifsx6vy7h2h" path="res://icon.svg" id="1_5u241"]
+[ext_resource type="Texture2D" uid="uid://ygry01iv8jyp" path="res://assets/mountain_back2.png" id="4_aa4hd"]
+[ext_resource type="Texture2D" uid="uid://dqqwgyik2f1t3" path="res://assets/mountain_mid2.png" id="5_68utx"]
+[ext_resource type="Texture2D" uid="uid://pqnxb37amwqh" path="res://assets/mountain_front2.png" id="6_ru2r1"]
+[ext_resource type="Texture2D" uid="uid://damcv0bmipy64" path="res://assets/bottom_back..png" id="7_lxs01"]
+[ext_resource type="Texture2D" uid="uid://bjl6bwjm8yy81" path="res://assets/bottom_mid.png" id="8_6nbx6"]
+[ext_resource type="Shader" uid="uid://2jyk63bthwvy" path="res://assets/water_shader.gdshader" id="10_5lclc"]
+[ext_resource type="Script" uid="uid://b1afqbou4mmu3" path="res://assets/water_shader.gd" id="11_ouqob"]
+[ext_resource type="Texture2D" uid="uid://bw828h46l0sp5" path="res://assets/bátur.png" id="12_44xle"]
+[ext_resource type="PackedScene" uid="uid://dpkcayi0yivcl" path="res://interface/game_menu.tscn" id="12_p0at6"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5u241"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dp3eg"]
+width = 100
+height = 100
+seamless = true
+noise = SubResource("FastNoiseLite_5u241")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pqync"]
+shader = ExtResource("10_5lclc")
+shader_parameter/CAST_COLOR = Color(9.40054e-09, 0.0118882, 0.0363577, 0)
+shader_parameter/fast_noise = SubResource("NoiseTexture2D_dp3eg")
+shader_parameter/speed = Vector2(0.03, 0.07)
+shader_parameter/wave_strength = 2.0
+shader_parameter/scale_y = 100.0
+shader_parameter/y_zoom = 0.289664
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_yuijs"]
+
+[node name="shop" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1.42888e-08, 0.0245006, 0.0572112, 0.513726)
+position = Vector2(948.249, 529.5)
+scale = Vector2(16.4883, 10.5391)
+texture = ExtResource("1_5u241")
+
+[node name="environment" type="Node2D" parent="."]
+
+[node name="MountainBack2" type="Sprite2D" parent="environment"]
+position = Vector2(962, 551)
+texture = ExtResource("4_aa4hd")
+
+[node name="MountainMid2" type="Sprite2D" parent="environment"]
+position = Vector2(962, 551)
+texture = ExtResource("5_68utx")
+
+[node name="MountainFront2" type="Sprite2D" parent="environment"]
+position = Vector2(962, 551)
+texture = ExtResource("6_ru2r1")
+
+[node name="BottomBack_" type="Sprite2D" parent="environment"]
+position = Vector2(965, 399)
+texture = ExtResource("7_lxs01")
+
+[node name="BottomMid" type="Sprite2D" parent="environment"]
+position = Vector2(965, 399)
+texture = ExtResource("8_6nbx6")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+modulate = Color(0.188027, 0.107351, 0.0618157, 1)
+position = Vector2(1723.62, 408.749)
+scale = Vector2(5.79094, 3.37109)
+texture = ExtResource("1_5u241")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0.188027, 0.107351, 0.0618157, 1)
+position = Vector2(1440, 630)
+scale = Vector2(13.3407, -0.306036)
+texture = ExtResource("1_5u241")
+
+[node name="Bátur" type="Sprite2D" parent="."]
+position = Vector2(883, 497)
+texture = ExtResource("12_44xle")
+
+[node name="waterShader" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_pqync")
+position = Vector2(861, 974)
+scale = Vector2(2337, 705)
+texture = SubResource("CanvasTexture_yuijs")
+script = ExtResource("11_ouqob")
+
+[node name="gameMenu" parent="." instance=ExtResource("12_p0at6")]
+process_mode = 3
+visible = false
