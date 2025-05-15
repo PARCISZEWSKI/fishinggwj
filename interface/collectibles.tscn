@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=3 uid="uid://o0uut8pfod8e"]
+
+[ext_resource type="Script" uid="uid://doyy4hj4ot7hi" path="res://interface/collectibles.gd" id="1_p254c"]
+[ext_resource type="Texture2D" uid="uid://c606m5eerkeqh" path="res://assets/book_01d.png" id="2_h35mn"]
+[ext_resource type="Texture2D" uid="uid://cd0b0td1lxsny" path="res://assets/book_01g.png" id="3_b85ff"]
+[ext_resource type="Texture2D" uid="uid://bde6vrmvi8drk" path="res://assets/Bass.png" id="4_t61la"]
+[ext_resource type="Texture2D" uid="uid://ppi80kp8y3pr" path="res://assets/Cross.png" id="5_nbugw"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jkv2x"]
+
+[node name="collectibles" type="CanvasLayer"]
+script = ExtResource("1_p254c")
+
+[node name="history_button" type="TextureButton" parent="."]
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 51.0
+offset_bottom = 51.0
+texture_normal = ExtResource("2_h35mn")
+texture_pressed = ExtResource("3_b85ff")
+texture_hover = ExtResource("3_b85ff")
+
+[node name="bass_caught" type="Sprite2D" parent="."]
+position = Vector2(89, 29)
+scale = Vector2(4, 4)
+texture = ExtResource("4_t61la")
+
+[node name="bass_number" type="Label" parent="."]
+offset_left = 127.0
+offset_top = 7.0
+offset_right = 170.0
+offset_bottom = 74.0
+theme_override_font_sizes/font_size = 32
+
+[node name="history" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.5
+offset_top = -346.5
+offset_right = 600.5
+offset_bottom = 346.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_jkv2x")
+
+[node name="bass_history" type="RichTextLabel" parent="history"]
+layout_mode = 0
+offset_right = 463.0
+offset_bottom = 348.0
+theme_override_font_sizes/normal_font_size = 32
+text = "Fish: Bass
+
+
+
+Caught: "
+fit_content = true
+
+[node name="bass_counter" type="Label" parent="history/bass_history"]
+layout_mode = 0
+offset_left = 124.5
+offset_top = 185.5
+offset_right = 159.5
+offset_bottom = 230.5
+theme_override_font_sizes/font_size = 32
+
+[node name="bass_caught" type="Sprite2D" parent="history/bass_history"]
+position = Vector2(75.5, 112.5)
+scale = Vector2(8, 8)
+texture = ExtResource("4_t61la")
+
+[node name="exit_history" type="TextureButton" parent="history"]
+process_mode = 3
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.961
+anchor_top = 0.066
+anchor_right = 0.961
+anchor_bottom = 0.066
+offset_left = -28.661
+offset_top = -30.238
+offset_right = 29.339
+offset_bottom = 29.762
+texture_normal = ExtResource("5_nbugw")
+texture_pressed = ExtResource("5_nbugw")
+texture_hover = ExtResource("5_nbugw")
+
+[connection signal="pressed" from="history_button" to="." method="_on_history_button_pressed"]
+[connection signal="pressed" from="history/exit_history" to="." method="_on_exit_history_pressed"]
