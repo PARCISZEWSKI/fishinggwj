@@ -1,12 +1,10 @@
-class_name Fish
-extends Area2D
+extends Fish
 
+#@export var move_speed = 100.0
+#@export var soundDeath: AudioStream
 
-@export var move_speed = 100.0
-@export var soundDeath: AudioStream
-
-var starting_position: Vector2
-var direction: Vector2 = Vector2.RIGHT  # Initialize with a default direction
+#var starting_position: Vector2
+#var direction: Vector2 = Vector2.RIGHT  # Initialize with a default direction
 
 func _ready():
 	starting_position = position
@@ -27,11 +25,11 @@ func _process(delta: float) -> void:
 func _on_timer_timeout():  #Change direction randomly
 	direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
 	if direction.x != 0:
-		$visual/bass.flip_h = direction.x < 0
-		$visual/bass/outline.flip_h = direction.x < 0
+		$visual/Puffer.flip_h = direction.x < 0
+		$visual/Puffer/outline.flip_h = direction.x < 0
 
 func _on_body_entered(body) -> void:
-	Currency.bass_caught += 1
+	Currency.puffer_caught += 1
 	queue_free()
 	var audio_player = Audio.play_sound_2d(soundDeath, "Effects")
 	audio_player.position = global_position

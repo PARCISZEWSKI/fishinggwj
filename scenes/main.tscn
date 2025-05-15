@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://b76s64dbrngm4"]
+[gd_scene load_steps=20 format=3 uid="uid://b76s64dbrngm4"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_choun"]
 [ext_resource type="Texture2D" uid="uid://b6ifsx6vy7h2h" path="res://icon.svg" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://kyv8vx6ntb8s" path="res://nodes/player.tscn" id="1_o5qli"]
 [ext_resource type="Shader" uid="uid://2jyk63bthwvy" path="res://assets/water_shader.gdshader" id="2_sugp2"]
 [ext_resource type="Script" uid="uid://b1afqbou4mmu3" path="res://assets/water_shader.gd" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://4eng36vlcp03" path="res://nodes/fish2.tscn" id="5_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://3jpb3qgykne6" path="res://nodes/fish.tscn" id="5_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://ygry01iv8jyp" path="res://assets/mountain_back2.png" id="5_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://pqnxb37amwqh" path="res://assets/mountain_front2.png" id="6_eb6dy"]
@@ -45,7 +46,7 @@ texture = ExtResource("1_jyhfs")
 position = Vector2(871, 724)
 left_edge = -500
 right_edge = 500
-fishes = Array[PackedScene]([ExtResource("5_tbgi4")])
+fishes = Array[PackedScene]([ExtResource("5_tbgi4"), ExtResource("5_jkv2x")])
 
 [node name="environment" type="Node2D" parent="."]
 

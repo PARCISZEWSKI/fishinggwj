@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://o0uut8pfod8e"]
+[gd_scene load_steps=9 format=3 uid="uid://o0uut8pfod8e"]
 
 [ext_resource type="Script" uid="uid://doyy4hj4ot7hi" path="res://interface/collectibles.gd" id="1_p254c"]
 [ext_resource type="Texture2D" uid="uid://c606m5eerkeqh" path="res://assets/book_01d.png" id="2_h35mn"]
 [ext_resource type="Texture2D" uid="uid://cd0b0td1lxsny" path="res://assets/book_01g.png" id="3_b85ff"]
 [ext_resource type="Texture2D" uid="uid://bde6vrmvi8drk" path="res://assets/Bass.png" id="4_t61la"]
+[ext_resource type="Texture2D" uid="uid://csi5x5upwqw1b" path="res://assets/Pufferfish.png" id="5_b85ff"]
 [ext_resource type="Texture2D" uid="uid://ppi80kp8y3pr" path="res://assets/Cross.png" id="5_nbugw"]
 [ext_resource type="Texture2D" uid="uid://bb1rae2c26my3" path="res://assets/coin_01d.png" id="6_h35mn"]
 
@@ -31,6 +32,18 @@ offset_left = 127.0
 offset_top = 7.0
 offset_right = 170.0
 offset_bottom = 74.0
+theme_override_font_sizes/font_size = 32
+
+[node name="puffer_caught" type="Sprite2D" parent="."]
+position = Vector2(208, 33)
+scale = Vector2(4, 4)
+texture = ExtResource("5_b85ff")
+
+[node name="puffer_number" type="Label" parent="."]
+offset_left = 250.0
+offset_top = 7.0
+offset_right = 290.0
+offset_bottom = 52.0
 theme_override_font_sizes/font_size = 32
 
 [node name="history" type="TextureRect" parent="."]

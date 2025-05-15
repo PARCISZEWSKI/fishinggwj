@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://4eng36vlcp03"]
+
+[ext_resource type="Texture2D" uid="uid://csi5x5upwqw1b" path="res://assets/Pufferfish.png" id="1_oyd6i"]
+[ext_resource type="Script" uid="uid://nc8cvb5w87tk" path="res://nodes/fish_2.gd" id="1_vmkq6"]
+[ext_resource type="Texture2D" uid="uid://c4gy77dd4kna7" path="res://assets/Pufferfish Outline.png" id="2_vmkq6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e6jyy"]
+radius = 8.32436
+height = 20.7632
+
+[node name="fish2" type="Area2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_vmkq6")
+
+[node name="visual" type="Node2D" parent="."]
+
+[node name="Puffer" type="Sprite2D" parent="visual"]
+texture = ExtResource("1_oyd6i")
+
+[node name="outline" type="Sprite2D" parent="visual/Puffer"]
+texture = ExtResource("2_vmkq6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.333333, 0.333333)
+rotation = -1.54952
+shape = SubResource("CapsuleShape2D_e6jyy")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
