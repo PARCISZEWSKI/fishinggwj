@@ -24,6 +24,7 @@ var startLevel: PackedScene = load("res://scenes/main.tscn") ##Level to load whe
 
 
 func _ready() -> void:
+	get_tree().paused = false
 	if skipMenu: #Skips menu if variable set to true, shortcut for testing
 		get_tree().change_scene_to_packed(startLevel)
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
