@@ -6,17 +6,20 @@
 [ext_resource type="Texture2D" uid="uid://xwpn26hceopw" path="res://assets/Bass Outline.png" id="3_p743a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e6jyy"]
-radius = 6.96578
-height = 20.7632
+radius = 8.00528
+height = 22.7041
 
 [node name="fish" type="Area2D"]
 scale = Vector2(3, 3)
 script = ExtResource("1_e6jyy")
 soundDeath = ExtResource("2_p743a")
+move_speed = 150.0
+move_area = Rect2(0, 0, 1917, 435)
 
 [node name="visual" type="Node2D" parent="."]
 
 [node name="bass" type="Sprite2D" parent="visual"]
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_ju88t")
 
 [node name="outline" type="Sprite2D" parent="visual/bass"]
@@ -27,9 +30,4 @@ position = Vector2(-0.333333, 0.333333)
 rotation = -1.54952
 shape = SubResource("CapsuleShape2D_e6jyy")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-autostart = true
-
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

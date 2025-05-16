@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="fishingGWJ"
-run/main_scene="uid://hijht0dsuvgo"
+run/main_scene="uid://du3bwnt3hbcer"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
