@@ -1,8 +1,10 @@
 extends Node
 
+@export var start_krona: int = 50 ##Gold to start off with
+
 @export_group("Scene Control")
 @export var skipMenu: bool = false ##Turn to true to skip main menu, used for testing purposes
-var startLevel: PackedScene = load("res://scenes/main.tscn") ##Level to load when pressing the start button
+var startLevel: PackedScene = load("res://scenes/shop.tscn") ##Level to load when pressing the start button
 
 @export_group("Audio")
 @export var clickSound: AudioStream ##Audio stream when player click audio
@@ -38,9 +40,15 @@ func _ready() -> void:
 # 		windowToggle.button_pressed = false
 
 func _on_start_button_down() -> void: ##Starts level on start button press
+	initialize_game()
 	get_tree().change_scene_to_packed(startLevel)
 	Audio.play_sound(clickSound, "Effects")
 
+func initialize_game() -> void:
+	Currency.krona = start_krona
+	Currency.bass_caught = 0
+	Currency.puffer_caught = 0
+	SupplyTimer.supply_left = 0
 
 
 

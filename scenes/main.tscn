@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://b76s64dbrngm4"]
+[gd_scene load_steps=23 format=3 uid="uid://b76s64dbrngm4"]
 
 [ext_resource type="Script" uid="uid://iluebfclh7sc" path="res://scenes/main.gd" id="1_choun"]
-[ext_resource type="Texture2D" uid="uid://b6ifsx6vy7h2h" path="res://icon.svg" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://kyv8vx6ntb8s" path="res://nodes/player.tscn" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://hu848l4mhkhr" path="res://assets/bakgrunnur i.png" id="2_dp3eg"]
 [ext_resource type="Shader" uid="uid://2jyk63bthwvy" path="res://assets/water_shader.gdshader" id="2_sugp2"]
+[ext_resource type="Texture2D" uid="uid://b7vvpi4xk7g7a" path="res://assets/clouds..png" id="3_0ld40"]
 [ext_resource type="Script" uid="uid://b1afqbou4mmu3" path="res://assets/water_shader.gd" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://4eng36vlcp03" path="res://nodes/fish2.tscn" id="5_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://3jpb3qgykne6" path="res://nodes/fish.tscn" id="5_tbgi4"]
@@ -14,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dqqwgyik2f1t3" path="res://assets/mountain_mid2.png" id="7_trceg"]
 [ext_resource type="Texture2D" uid="uid://damcv0bmipy64" path="res://assets/bottom_back..png" id="8_dp3eg"]
 [ext_resource type="Texture2D" uid="uid://bjl6bwjm8yy81" path="res://assets/bottom_mid.png" id="9_0ld40"]
+[ext_resource type="Texture2D" uid="uid://cvvwqhvuv6vsa" path="res://assets/bottom_front.png" id="11_muem4"]
 [ext_resource type="PackedScene" uid="uid://dpkcayi0yivcl" path="res://interface/game_menu.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://o0uut8pfod8e" path="res://interface/collectibles.tscn" id="12_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://brtkq8aoijft1" path="res://interface/game_over_timer.tscn" id="15_jkv2x"]
@@ -31,7 +33,7 @@ shader_parameter/fast_noise = SubResource("NoiseTexture2D_dp3eg")
 shader_parameter/speed = Vector2(0.03, 0.07)
 shader_parameter/wave_strength = 2.0
 shader_parameter/scale_y = 100.0
-shader_parameter/y_zoom = 0.385543
+shader_parameter/y_zoom = 0.350494
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_1elys"]
 
@@ -53,16 +55,25 @@ spawn_area = Rect2(0, 0, 1917, 435)
 
 [node name="environment" type="Node2D" parent="."]
 
+[node name="BakgrunnurI" type="Sprite2D" parent="environment"]
+modulate = Color(1, 1, 1, 0.654902)
+position = Vector2(975, 489)
+texture = ExtResource("2_dp3eg")
+
+[node name="Clouds_" type="Sprite2D" parent="environment"]
+position = Vector2(1061, 610)
+texture = ExtResource("3_0ld40")
+
 [node name="MountainBack2" type="Sprite2D" parent="environment"]
-position = Vector2(962, 551)
+position = Vector2(957, 514)
 texture = ExtResource("5_ya4ey")
 
 [node name="MountainMid2" type="Sprite2D" parent="environment"]
-position = Vector2(962, 551)
+position = Vector2(957, 514)
 texture = ExtResource("7_trceg")
 
 [node name="MountainFront2" type="Sprite2D" parent="environment"]
-position = Vector2(962, 551)
+position = Vector2(957, 514)
 texture = ExtResource("6_eb6dy")
 
 [node name="BottomBack_" type="Sprite2D" parent="environment"]
@@ -73,8 +84,18 @@ texture = ExtResource("8_dp3eg")
 position = Vector2(965, 399)
 texture = ExtResource("9_0ld40")
 
+[node name="spawnComponent" parent="." instance=ExtResource("6_tefeu")]
+position = Vector2(1, 644)
+fish_scene = Array[PackedScene]([ExtResource("5_tbgi4"), ExtResource("5_jkv2x")])
+max_fish = 12
+spawn_area = Rect2(0, 0, 1917, 435)
+
+[node name="BottomFront" type="Sprite2D" parent="."]
+position = Vector2(945, 528)
+texture = ExtResource("11_muem4")
+
 [node name="player" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(818, 651)
+position = Vector2(928, 640)
 
 [node name="waterShader" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_tbgi4")
