@@ -7,12 +7,16 @@ extends Node2D
 @export var soundReady: AudioStream
 @export var soundThrow: AudioStream
 
+@export_group("Wobble")
+@export var wobble_amount: float = 0.2 ##Higher = more wobble
+@export var wobble_speed_multiplier: float = 3.0 ##Higher = faster wobble
 
 var direction: Vector2 ##Direction to mouseposition
 var current_state: SPEARSTATUS = SPEARSTATUS.ready ##Current state in statemachine
 var spearChild: RigidBody2D ##Reference to spawned physics spear
 var oscillation_time: float = 0.0 ##Tracks project time #FIXME: need to be reset once in a while, isn't currently
 var oscillation: float ##Output oscillation between [0, 1]
+var charging_start_rotation: float ##Stores initial rotation before charging
 
 #References to children
 @onready var sprite: Node2D = $visual
@@ -43,24 +47,20 @@ func _process(delta: float) -> void:
 			#Sprite is rotated to mouse and direction is set
 			if Input.is_action_just_pressed("primary"):
 				current_state = SPEARSTATUS.charging
+				charging_start_rotation = direction.angle() - PI/2 # Store inital rotation
 				chargeBar.visible = true
 				var audio_player = Audio.play_sound_2d(soundReady, "Effects") #FIXME: Mismunandi hljóð fyrir ready og að byrja að charge-a
 				audio_player.position = global_position
 
 		SPEARSTATUS.charging: #Charging spear throw
-			var mouse_pos = get_global_mouse_position()
-			direction = (mouse_pos - global_position).normalized()
-			#Calculate target angle with constraints
-			var MAX_LEFT_ANGLE = deg_to_rad(-40) #60 degrees left
-			var MAX_RIGHT_ANGLE = deg_to_rad(40) #60 degrees right
-			var raw_angle = direction.angle() - PI/2
-			var target_angle = clamp(raw_angle, MAX_LEFT_ANGLE, MAX_RIGHT_ANGLE)
-			#Apply damped rotation
-			sprite.rotation = lerp_angle(sprite.rotation, target_angle, 0.0005)
+			#Gamalt
+			#var mouse_pos = get_global_mouse_position()
+			#direction = (mouse_pos - global_position).normalized()
+			#Adds wobble and wobbles more when poorly timed (not at peak charge)
+			var wobble_intensity = wobble_amount * (1.0 - oscillation)
+			var rotation_offset = sin(oscillation_time * oscillation_speed * wobble_speed_multiplier) * wobble_intensity
+			sprite.rotation = charging_start_rotation + rotation_offset
 
-			# Add slight scale effect during rotation
-			sprite.scale = Vector2(1.0, 1.0) * (1.0 + 0.1 * abs(sin(sprite.rotation * 2)))
-			
 			#FIXME: Add reduced sprite rotation to charging mode to make aiming harder and more natural
 			if Input.is_action_just_released("primary"):
 				chargeBar.visible = false
@@ -73,7 +73,6 @@ func _process(delta: float) -> void:
 				resetItem()
 				var audio_player = Audio.play_sound_2d(soundReady, "Effects")
 				audio_player.position = global_position
-		#FIXME: Implement return state where spears is dragged back towards ship and then it is reset
 
 func useItem() -> void: ##Spawn and fires a spearPhysics spear
 	current_state = SPEARSTATUS.thrown
