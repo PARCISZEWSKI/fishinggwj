@@ -11,7 +11,7 @@ func _ready():
 	SupplyTimer.pause_timer()
 
 #On button press sells bass until 0 for 5 coins and then 
-#puffer until 0 for 10 coins else prints not enough fish
+#puffer until 0 for 10 coins and so on
 func _on_sell_fish_pressed() -> void:
 	if Currency.bass_caught > 0:
 		Currency.bass_caught -= 1

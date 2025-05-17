@@ -32,6 +32,6 @@ func spawn_fish():
 	add_child(new_fish)
 
 # Visual of spawn area for debug
-#func _draw():
-#	draw_rect(spawn_area, Color(1, 0, 0, 0.2), true)
-#	draw_rect(spawn_area, Color(1, 0, 0, 0.5), false, 2.0)
+func _draw():
+	draw_rect(spawn_area, Color(1, 0, 0, 0.2), true)
+	draw_rect(spawn_area, Color(1, 0, 0, 0.5), false, 2.0)
