@@ -26,7 +26,6 @@ spearPhysics = ExtResource("2_kvbwv")
 oscillation_speed = 4.0
 soundReady = SubResource("AudioStreamRandomizer_rl61q")
 soundThrow = SubResource("AudioStreamRandomizer_w2pan")
-wobble_amount = 0.4
 
 [node name="chargeBar" type="ProgressBar" parent="."]
 visible = false
