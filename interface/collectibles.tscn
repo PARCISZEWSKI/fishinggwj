@@ -1,12 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://o0uut8pfod8e"]
+[gd_scene load_steps=11 format=3 uid="uid://o0uut8pfod8e"]
 
 [ext_resource type="Script" uid="uid://doyy4hj4ot7hi" path="res://interface/collectibles.gd" id="1_p254c"]
 [ext_resource type="Texture2D" uid="uid://c606m5eerkeqh" path="res://assets/book_01d.png" id="2_h35mn"]
 [ext_resource type="Texture2D" uid="uid://cd0b0td1lxsny" path="res://assets/book_01g.png" id="3_b85ff"]
+[ext_resource type="Texture2D" uid="uid://r313v1vmmwub" path="res://assets/fiskur_1..png" id="4_nbugw"]
 [ext_resource type="Texture2D" uid="uid://bde6vrmvi8drk" path="res://assets/Bass.png" id="4_t61la"]
-[ext_resource type="Texture2D" uid="uid://csi5x5upwqw1b" path="res://assets/Pufferfish.png" id="5_b85ff"]
 [ext_resource type="Texture2D" uid="uid://ppi80kp8y3pr" path="res://assets/Cross.png" id="5_nbugw"]
+[ext_resource type="Texture2D" uid="uid://ctg4y7jp4mxxw" path="res://assets/fish_2..png" id="5_t61la"]
 [ext_resource type="Texture2D" uid="uid://bb1rae2c26my3" path="res://assets/coin_01d.png" id="6_h35mn"]
+[ext_resource type="Texture2D" uid="uid://t441818eekxm" path="res://assets/fish_3..png" id="6_nbugw"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jkv2x"]
 
@@ -24,8 +26,8 @@ texture_hover = ExtResource("3_b85ff")
 
 [node name="bass_caught" type="Sprite2D" parent="."]
 position = Vector2(89, 29)
-scale = Vector2(4, 4)
-texture = ExtResource("4_t61la")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_nbugw")
 
 [node name="bass_number" type="Label" parent="."]
 offset_left = 127.0
@@ -33,18 +35,33 @@ offset_top = 7.0
 offset_right = 170.0
 offset_bottom = 74.0
 theme_override_font_sizes/font_size = 32
+text = "1"
 
 [node name="puffer_caught" type="Sprite2D" parent="."]
-position = Vector2(208, 33)
-scale = Vector2(4, 4)
-texture = ExtResource("5_b85ff")
+position = Vector2(224, 27)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_t61la")
 
 [node name="puffer_number" type="Label" parent="."]
-offset_left = 250.0
-offset_top = 7.0
-offset_right = 290.0
-offset_bottom = 52.0
+offset_left = 278.0
+offset_top = 5.0
+offset_right = 318.0
+offset_bottom = 50.0
 theme_override_font_sizes/font_size = 32
+text = "1"
+
+[node name="fish3_caught" type="Sprite2D" parent="."]
+position = Vector2(372, 30)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_nbugw")
+
+[node name="fish3_number" type="Label" parent="."]
+offset_left = 435.0
+offset_top = 3.0
+offset_right = 475.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 32
+text = "1"
 
 [node name="history" type="TextureRect" parent="."]
 visible = false

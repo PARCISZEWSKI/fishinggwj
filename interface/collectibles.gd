@@ -6,6 +6,7 @@ func _process(delta: float) -> void:
 	$bass_number.text = var_to_str(Currency.bass_caught)
 	$puffer_number.text = var_to_str(Currency.puffer_caught)
 	$krona_value.text = var_to_str(Currency.krona)
+	$fish3_number.text = var_to_str(Currency.fish3_caught)
 	history()
 	
 

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1ub6vrhf2n8m"]
+
+[ext_resource type="Script" uid="uid://clki5sreuld1x" path="res://nodes/fish_3.gd" id="1_10obt"]
+[ext_resource type="Texture2D" uid="uid://t441818eekxm" path="res://assets/fish_3..png" id="3_aey6k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e6jyy"]
+radius = 6.33938
+height = 41.3377
+
+[node name="fish" type="Area2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_10obt")
+move_speed = 500.0
+
+[node name="visual" type="Node2D" parent="."]
+
+[node name="fish_3" type="Sprite2D" parent="visual"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_aey6k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.666667, 0)
+rotation = -1.59409
+shape = SubResource("CapsuleShape2D_e6jyy")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

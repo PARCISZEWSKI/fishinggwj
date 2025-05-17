@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b76s64dbrngm4"]
+[gd_scene load_steps=22 format=3 uid="uid://b76s64dbrngm4"]
 
 [ext_resource type="Script" uid="uid://iluebfclh7sc" path="res://scenes/main.gd" id="1_choun"]
 [ext_resource type="Texture2D" uid="uid://b6ifsx6vy7h2h" path="res://icon.svg" id="1_jyhfs"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://3jpb3qgykne6" path="res://nodes/fish.tscn" id="5_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://ygry01iv8jyp" path="res://assets/mountain_back2.png" id="5_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://pqnxb37amwqh" path="res://assets/mountain_front2.png" id="6_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://b1ub6vrhf2n8m" path="res://nodes/fish3.tscn" id="6_muem4"]
 [ext_resource type="PackedScene" uid="uid://cqswwvxdx7x5w" path="res://components/spawn_component.tscn" id="6_tefeu"]
 [ext_resource type="Texture2D" uid="uid://dqqwgyik2f1t3" path="res://assets/mountain_mid2.png" id="7_trceg"]
 [ext_resource type="Texture2D" uid="uid://damcv0bmipy64" path="res://assets/bottom_back..png" id="8_dp3eg"]
@@ -46,7 +47,7 @@ texture = ExtResource("1_jyhfs")
 [node name="spawnComponent" parent="." instance=ExtResource("6_tefeu")]
 top_level = true
 position = Vector2(1, 644)
-fish_scene = Array[PackedScene]([ExtResource("5_tbgi4"), ExtResource("5_jkv2x")])
+fish_scene = Array[PackedScene]([ExtResource("5_tbgi4"), ExtResource("5_jkv2x"), ExtResource("6_muem4")])
 max_fish = 12
 spawn_area = Rect2(0, 0, 1917, 435)
 

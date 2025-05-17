@@ -3,7 +3,10 @@ extends Area2D
 @export var soundDeath: AudioStream
 @export var move_speed: float = 50.0
 @export var move_area: Rect2 = Rect2(0, 0, 400, 300)  # Customize this
+@export var turn_rate: float = 0.01 # 1% chance each frame
+
 var direction: Vector2 = Vector2.RIGHT
+@onready var sprite = $visual/Puffer
 
 func _ready():
 	# Randomize initial direction
@@ -13,6 +16,7 @@ func _ready():
 		randf_range(move_area.position.x, move_area.end.x),
 		randf_range(move_area.position.y, move_area.end.y)
 	)
+	_update_sprite_flip()
 
 func _process(delta):
 	position += direction * move_speed * delta
@@ -21,16 +25,22 @@ func _process(delta):
 	if position.x < move_area.position.x or position.x > move_area.end.x:
 		direction.x *= -1
 		position.x = clamp(position.x, move_area.position.x, move_area.end.x)
+		_update_sprite_flip()
 	
 	if position.y < move_area.position.y or position.y > move_area.end.y:
 		direction.y *= -1
 		position.y = clamp(position.y, move_area.position.y, move_area.end.y)
 	
 	# Random direction changes for more natural movement
-	if randf() < 0.005:  # 0.5% chance each frame
+	if randf() < turn_rate:  
 		direction = direction.rotated(randf_range(-PI/4, PI/4)).normalized()
+		_update_sprite_flip()
 
-
+func _update_sprite_flip() -> void:
+	if direction.x > 0: # Moving right
+		sprite.flip_h = true
+	elif direction.x < 0: # Moving left
+		sprite.flip_h = false
 
 func _on_body_entered(body: Node2D) -> void:
 	Currency.puffer_caught += 1

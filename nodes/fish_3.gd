@@ -3,10 +3,10 @@ extends Area2D
 @export var soundDeath: AudioStream
 @export var move_speed: float = 50.0
 @export var move_area: Rect2 = Rect2(0, 0, 400, 300)  # Customize this
-@export var turn_rate: float = 0.001 # 0.1% chance each frame
+@export var turn_rate: float = 0.005 # 0.5% chance each frame
 
 var direction: Vector2 = Vector2.RIGHT
-@onready var sprite = $visual/bass
+@onready var sprite = $visual/fish_3
 
 func _ready():
 	# Randomize initial direction
@@ -16,7 +16,6 @@ func _ready():
 		randf_range(move_area.position.x, move_area.end.x),
 		randf_range(move_area.position.y, move_area.end.y)
 	)
-	# Set initial flip
 	_update_sprite_flip()
 
 func _process(delta):
@@ -44,13 +43,7 @@ func _update_sprite_flip() -> void:
 		sprite.flip_h = false
 
 func _on_body_entered(body) -> void:
-	Currency.bass_caught += 1
+	Currency.fish3_caught += 1
 	var audio_player = Audio.play_sound_2d(soundDeath, "Effects")
 	audio_player.position = global_position
 	queue_free()
-
-
-#gamalt
-#if direction.x != 0:
-#$visual/bass.flip_h = direction.x < 0
-#$visual/bass/outline.flip_h = direction.x < 0
