@@ -1,12 +1,12 @@
 extends Timer
 
-var game_over_scene: PackedScene
-static var supply_left: float = 10.0  # Default time (seconds)
+var game_over_scene: PackedScene = load("res://interface/game_over.tscn")
+static var supply_left: float = 0  # Default time (seconds)
 
 func _ready():	
 	# Connect timeout signal (if needed)
 	timeout.connect(_on_timeout)
-
+	one_shot = true
 func start_timer():
 	if supply_left <= 0:
 		print("Cannot start timer: time is zero!")

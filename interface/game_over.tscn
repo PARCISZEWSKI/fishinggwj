@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxfuusat0cufs"]
+
+[ext_resource type="Script" uid="uid://b0qy61vop2wc" path="res://interface/game_over.gd" id="1_jm08o"]
+[ext_resource type="Theme" uid="uid://cfkxwyulff85" path="res://assets/theme.tres" id="3_vcjr5"]
+[ext_resource type="PackedScene" uid="uid://hsux5oifdyix" path="res://assets/water_shader.tscn" id="4_27e14"]
+[ext_resource type="Shader" uid="uid://2jyk63bthwvy" path="res://assets/water_shader.gdshader" id="5_rbqhj"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_i74xo"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g8y3y"]
+width = 500
+height = 500
+seamless = true
+noise = SubResource("FastNoiseLite_i74xo")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wwcsp"]
+shader = ExtResource("5_rbqhj")
+shader_parameter/CAST_COLOR = Color(0.32549, 0.168627, 0.188235, 1)
+shader_parameter/fast_noise = SubResource("NoiseTexture2D_g8y3y")
+shader_parameter/speed = Vector2(0.03, 0.07)
+shader_parameter/wave_strength = 1.0
+shader_parameter/scale_y = 0.0
+shader_parameter/y_zoom = 0.350494
+
+[node name="gameOver" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_jm08o")
+
+[node name="menu" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.5
+offset_top = -73.5
+offset_right = 98.5
+offset_bottom = 73.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_vcjr5")
+
+[node name="Label" type="Label" parent="menu"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 46
+text = "you lost"
+horizontal_alignment = 1
+
+[node name="pillow1" type="Control" parent="menu"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="start" type="Button" parent="menu"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Main menu"
+
+[node name="pillow2" type="Control" parent="menu"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="waterShader" parent="." instance=ExtResource("4_27e14")]
+z_index = 10
+material = SubResource("ShaderMaterial_wwcsp")
+position = Vector2(978.125, 553.875)
+scale = Vector2(1991.75, 1164.25)
+
+[connection signal="button_down" from="menu/start" to="." method="_on_start_button_down"]

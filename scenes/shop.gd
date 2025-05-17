@@ -22,7 +22,7 @@ func _on_sell_fish_pressed() -> void:
 
 
 func _on_buy_time_button_down() -> void:
-	if Currency.krona > supply_price:
+	if Currency.krona >= supply_price:
 		Currency.krona -= supply_price
 		SupplyTimer.add_time(supply_amount)
 	else: 
