@@ -14,7 +14,6 @@ func history() -> void:
 
 #Changes to the shop scene if in main scene and vise versa
 func _on_history_button_pressed() -> void:
-	SupplyTimer.pause_timer()
 
 	if get_tree().current_scene.scene_file_path == "res://scenes/main.tscn":
 		get_tree().change_scene_to_file("res://scenes/shop.tscn")

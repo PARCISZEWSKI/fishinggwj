@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="fishingGWJ"
-run/main_scene="uid://du3bwnt3hbcer"
+run/main_scene="uid://hijht0dsuvgo"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -23,7 +23,7 @@ buses/default_bus_layout="res://assets/default_bus_layout.tres"
 
 Enums="*res://singletons/enums.gd"
 Audio="*res://singletons/Audio.tscn"
-SupplyTimer="*res://singletons/supply_timer.tscn"
+SupplyTimer="*res://singletons/supply_timer.gd"
 
 [display]
 

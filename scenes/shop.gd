@@ -1,4 +1,10 @@
 extends Node2D
+
+@export var bass_price: int = 5
+@export var puffer_price: int = 10
+@export var supply_price: int = 50
+@export var supply_amount: float = 10.0
+
 func _ready():
 	SupplyTimer.pause_timer()
 
@@ -7,9 +13,17 @@ func _ready():
 func _on_sell_fish_pressed() -> void:
 	if Currency.bass_caught > 0:
 		Currency.bass_caught -= 1
-		Currency.krona += 5
+		Currency.krona += bass_price
 	elif Currency.bass_caught <= 0 && Currency.puffer_caught > 0:
 		Currency.puffer_caught -= 1
-		Currency.krona += 10
+		Currency.krona += puffer_price
 	else:
 		print("not enough fish")
+
+
+func _on_buy_time_button_down() -> void:
+	if Currency.krona > supply_price:
+		Currency.krona -= supply_price
+		SupplyTimer.add_time(supply_amount)
+	else: 
+		print("Skibidi")
