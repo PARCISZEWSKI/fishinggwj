@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://sq756ar7j8qn"]
+[gd_scene load_steps=17 format=3 uid="uid://sq756ar7j8qn"]
 
 [ext_resource type="Script" uid="uid://ch1fwciq8s670" path="res://interface/game_won.gd" id="1_covll"]
+[ext_resource type="AudioStream" uid="uid://bxt36m8we87f8" path="res://assets/audio/Boop.wav" id="2_edvnd"]
 [ext_resource type="Texture2D" uid="uid://hu848l4mhkhr" path="res://assets/bakgrunnur i.png" id="2_g4nod"]
 [ext_resource type="Theme" uid="uid://cfkxwyulff85" path="res://assets/theme.tres" id="2_jks3n"]
 [ext_resource type="Texture2D" uid="uid://damcv0bmipy64" path="res://assets/bottom_back..png" id="3_brpda"]
@@ -28,11 +29,12 @@ shader_parameter/fast_noise = SubResource("NoiseTexture2D_g8y3y")
 shader_parameter/speed = Vector2(0.03, 0.07)
 shader_parameter/wave_strength = 1.0
 shader_parameter/scale_y = 0.0
-shader_parameter/y_zoom = 1.0
+shader_parameter/y_zoom = 0.263331
 
 [node name="gameWon" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_covll")
+clickSound = ExtResource("2_edvnd")
 
 [node name="sprites" type="Node2D" parent="."]
 
