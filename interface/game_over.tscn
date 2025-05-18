@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://dxfuusat0cufs"]
+[gd_scene load_steps=18 format=3 uid="uid://dxfuusat0cufs"]
 
 [ext_resource type="Script" uid="uid://b0qy61vop2wc" path="res://interface/game_over.gd" id="1_jm08o"]
+[ext_resource type="AudioStream" uid="uid://bxt36m8we87f8" path="res://assets/audio/Boop.wav" id="2_1r5mb"]
 [ext_resource type="Texture2D" uid="uid://hu848l4mhkhr" path="res://assets/bakgrunnur i.png" id="2_36ikk"]
 [ext_resource type="Texture2D" uid="uid://bw828h46l0sp5" path="res://assets/bátur.png" id="3_1r5mb"]
 [ext_resource type="Texture2D" uid="uid://damcv0bmipy64" path="res://assets/bottom_back..png" id="3_o3mv0"]
@@ -34,6 +35,7 @@ shader_parameter/y_zoom = 0.385543
 [node name="gameOver" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_jm08o")
+clickSound = ExtResource("2_1r5mb")
 
 [node name="sprites" type="Node2D" parent="."]
 position = Vector2(0, -3)
