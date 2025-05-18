@@ -3,6 +3,10 @@ extends CanvasLayer
 var mouse_on_button: bool = false ##Is true when mouse hovers over map button
 
 func _process(delta: float) -> void:
+	if get_parent().is_in_group('shop'):
+		$history_button.flip_h = true
+	else:
+		$history_button.flip_h = false
 	$bass_number.text = var_to_str(Currency.bass_caught)
 	$puffer_number.text = var_to_str(Currency.puffer_caught)
 	$krona_value.text = var_to_str(Currency.krona)

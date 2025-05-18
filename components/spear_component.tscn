@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmsp0jhx7uijx"]
+[gd_scene load_steps=12 format=3 uid="uid://dmsp0jhx7uijx"]
 
 [ext_resource type="Script" uid="uid://71cgj2lpfao1" path="res://components/spear_component.gd" id="1_m8umk"]
 [ext_resource type="AudioStream" uid="uid://gl6x8ux1hrul" path="res://assets/audio/Fiussh1.wav" id="2_6eegq"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bmx1tlktj8c2k" path="res://assets/audio/Fiussh2.wav" id="3_tk8uh"]
 [ext_resource type="AudioStream" uid="uid://bgprm7h38lhkn" path="res://assets/audio/Shee1.wav" id="4_p5h3v"]
 [ext_resource type="AudioStream" uid="uid://cid8ewca4p3gk" path="res://assets/audio/Pshsss1.wav" id="5_buks7"]
+[ext_resource type="Texture2D" uid="uid://blepaya4cik2v" path="res://assets/spjot ..png" id="8_tk8uh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kvbwv"]
 
@@ -18,7 +19,7 @@ stream_2/stream = ExtResource("4_p5h3v")
 stream_3/stream = ExtResource("5_buks7")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t6vq1"]
-size = Vector2(4, 54.25)
+size = Vector2(5, 100.125)
 
 [node name="spearPhysics" type="RigidBody2D" groups=["item", "spear"]]
 physics_material_override = SubResource("PhysicsMaterial_kvbwv")
@@ -29,21 +30,28 @@ script = ExtResource("1_m8umk")
 soundSpear = SubResource("AudioStreamRandomizer_tym04")
 
 [node name="stick" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.623201, 0.411766, 0.316446, 1)
 scale = Vector2(0.0261151, 0.515146)
 texture = ExtResource("2_iqvtk")
 
 [node name="tip" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 0.270588, 1)
 position = Vector2(0, 32)
 scale = Vector2(0.0456119, -0.0768935)
 texture = ExtResource("2_iqvtk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 9)
+position = Vector2(0.5, 31.9375)
 shape = SubResource("RectangleShape2D_t6vq1")
 
 [node name="healthComponent" parent="." instance=ExtResource("3_3oxom")]
 health = 1
+
+[node name="Spjot_" type="Sprite2D" parent="."]
+position = Vector2(1, -19)
+rotation = 1.53533
+texture = ExtResource("8_tk8uh")
 
 [connection signal="healthZero" from="healthComponent" to="." method="_on_health_component_health_zero"]

@@ -67,22 +67,22 @@ texture = ExtResource("6_eb6dy")
 position = Vector2(965, 399)
 texture = ExtResource("8_dp3eg")
 
-[node name="BottomMid" type="Sprite2D" parent="environment"]
-position = Vector2(965, 399)
-texture = ExtResource("9_0ld40")
-
 [node name="spawnComponent" parent="environment" instance=ExtResource("6_tefeu")]
 position = Vector2(9, 607)
 fish_scene = Array[PackedScene]([ExtResource("5_tbgi4"), ExtResource("5_jkv2x"), ExtResource("6_muem4")])
 max_fish = 12
 spawn_area = Rect2(0, 0, 1910, 410)
 
+[node name="player" parent="." instance=ExtResource("1_o5qli")]
+position = Vector2(928, 640)
+
+[node name="BottomMid" type="Sprite2D" parent="."]
+position = Vector2(965, 399)
+texture = ExtResource("9_0ld40")
+
 [node name="BottomFront" type="Sprite2D" parent="."]
 position = Vector2(945, 528)
 texture = ExtResource("11_muem4")
-
-[node name="player" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(928, 640)
 
 [node name="waterShader" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_tbgi4")

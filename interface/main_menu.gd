@@ -29,6 +29,7 @@ func _ready() -> void:
 	SupplyTimer.pause_timer()
 	get_tree().paused = false
 	if skipMenu: #Skips menu if variable set to true, shortcut for testing
+		initialize_game()
 		get_tree().change_scene_to_packed(startLevel)
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
 		windowToggle.button_pressed = true

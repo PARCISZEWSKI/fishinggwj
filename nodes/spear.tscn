@@ -1,13 +1,13 @@
 [gd_scene load_steps=11 format=3 uid="uid://u2tnc6x8pm77"]
 
 [ext_resource type="Script" uid="uid://dxofn5a4yvwjk" path="res://nodes/spear.gd" id="1_kvbwv"]
-[ext_resource type="Texture2D" uid="uid://b6ifsx6vy7h2h" path="res://icon.svg" id="1_py0la"]
 [ext_resource type="PackedScene" uid="uid://dmsp0jhx7uijx" path="res://components/spear_component.tscn" id="2_kvbwv"]
 [ext_resource type="AudioStream" uid="uid://bhkxha873p5bt" path="res://assets/audio/Huegh2.wav" id="3_xfj8g"]
 [ext_resource type="AudioStream" uid="uid://fyjbenl61lim" path="res://assets/audio/Guegh1.wav" id="4_62smr"]
 [ext_resource type="AudioStream" uid="uid://cn7geep21dejf" path="res://assets/audio/Huee1.wav" id="5_8bevu"]
 [ext_resource type="AudioStream" uid="uid://c7xjgrfohtjmv" path="res://assets/audio/huee2.wav" id="6_yi2k3"]
 [ext_resource type="AudioStream" uid="uid://bjhom22vbfnqy" path="res://assets/audio/Huee3.wav" id="7_pi7o2"]
+[ext_resource type="Texture2D" uid="uid://blepaya4cik2v" path="res://assets/spjot ..png" id="8_62smr"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rl61q"]
 streams_count = 2
@@ -39,13 +39,7 @@ show_percentage = false
 
 [node name="visual" type="Node2D" parent="."]
 
-[node name="stick" type="Sprite2D" parent="visual"]
-modulate = Color(0.623201, 0.411766, 0.316446, 1)
-scale = Vector2(0.0261151, 0.515146)
-texture = ExtResource("1_py0la")
-
-[node name="tip" type="Sprite2D" parent="visual"]
-modulate = Color(1, 1, 0.270588, 1)
-position = Vector2(0, 32)
-scale = Vector2(0.0456119, -0.0768935)
-texture = ExtResource("1_py0la")
+[node name="Spjot_" type="Sprite2D" parent="visual"]
+position = Vector2(1, -19)
+rotation = 1.53533
+texture = ExtResource("8_62smr")

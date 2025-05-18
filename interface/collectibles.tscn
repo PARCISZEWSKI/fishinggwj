@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://o0uut8pfod8e"]
+[gd_scene load_steps=10 format=3 uid="uid://o0uut8pfod8e"]
 
 [ext_resource type="Script" uid="uid://doyy4hj4ot7hi" path="res://interface/collectibles.gd" id="1_p254c"]
-[ext_resource type="Texture2D" uid="uid://c606m5eerkeqh" path="res://assets/book_01d.png" id="2_h35mn"]
-[ext_resource type="Texture2D" uid="uid://cd0b0td1lxsny" path="res://assets/book_01g.png" id="3_b85ff"]
+[ext_resource type="Texture2D" uid="uid://dt2sknytjcmw3" path="res://assets/arrow.png" id="2_t61la"]
 [ext_resource type="Texture2D" uid="uid://r313v1vmmwub" path="res://assets/fiskur_1..png" id="4_nbugw"]
 [ext_resource type="Texture2D" uid="uid://bde6vrmvi8drk" path="res://assets/Bass.png" id="4_t61la"]
 [ext_resource type="Texture2D" uid="uid://ppi80kp8y3pr" path="res://assets/Cross.png" id="5_nbugw"]
@@ -16,50 +15,49 @@
 script = ExtResource("1_p254c")
 
 [node name="history_button" type="TextureButton" parent="."]
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 51.0
-offset_bottom = 51.0
-texture_normal = ExtResource("2_h35mn")
-texture_pressed = ExtResource("3_b85ff")
-texture_hover = ExtResource("3_b85ff")
+modulate = Color(0, 0, 0, 1)
+offset_left = 1759.0
+offset_top = 23.0
+offset_right = 1889.0
+offset_bottom = 85.0
+texture_normal = ExtResource("2_t61la")
 
 [node name="bass_caught" type="Sprite2D" parent="."]
-position = Vector2(89, 29)
+position = Vector2(150.75, 33)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_nbugw")
 
 [node name="bass_number" type="Label" parent="."]
-offset_left = 127.0
-offset_top = 7.0
-offset_right = 170.0
-offset_bottom = 74.0
+offset_left = 188.75
+offset_top = 11.0
+offset_right = 231.75
+offset_bottom = 78.0
 theme_override_font_sizes/font_size = 32
 text = "1"
 
 [node name="puffer_caught" type="Sprite2D" parent="."]
-position = Vector2(224, 27)
+position = Vector2(285.75, 31)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_t61la")
 
 [node name="puffer_number" type="Label" parent="."]
-offset_left = 278.0
-offset_top = 5.0
-offset_right = 318.0
-offset_bottom = 50.0
+offset_left = 339.75
+offset_top = 9.0
+offset_right = 379.75
+offset_bottom = 54.0
 theme_override_font_sizes/font_size = 32
 text = "1"
 
 [node name="fish3_caught" type="Sprite2D" parent="."]
-position = Vector2(372, 30)
+position = Vector2(433.75, 34)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_nbugw")
 
 [node name="fish3_number" type="Label" parent="."]
-offset_left = 435.0
-offset_top = 4.0
-offset_right = 475.0
-offset_bottom = 49.0
+offset_left = 496.75
+offset_top = 8.0
+offset_right = 536.75
+offset_bottom = 53.0
 theme_override_font_sizes/font_size = 32
 text = "1"
 
@@ -122,15 +120,15 @@ texture_pressed = ExtResource("5_nbugw")
 texture_hover = ExtResource("5_nbugw")
 
 [node name="krona1" type="Sprite2D" parent="."]
-position = Vector2(32, 86)
+position = Vector2(30, 37)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_h35mn")
 
 [node name="krona_value" type="Label" parent="."]
-offset_left = 60.0
-offset_top = 61.0
-offset_right = 100.0
-offset_bottom = 106.0
+offset_left = 62.0
+offset_top = 12.0
+offset_right = 102.0
+offset_bottom = 57.0
 theme_override_font_sizes/font_size = 32
 
 [connection signal="mouse_entered" from="history_button" to="." method="_on_history_button_mouse_entered"]
