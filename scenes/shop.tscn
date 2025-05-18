@@ -29,12 +29,15 @@ shader_parameter/fast_noise = SubResource("NoiseTexture2D_dp3eg")
 shader_parameter/speed = Vector2(0.03, 0.07)
 shader_parameter/wave_strength = 2.0
 shader_parameter/scale_y = 100.0
-shader_parameter/y_zoom = 0.424098
+shader_parameter/y_zoom = 0.350494
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_yuijs"]
 
 [node name="shop" type="Node2D"]
 script = ExtResource("1_44xle")
+supply_price = 20
+supply_amount = 30.0
+debt_cost = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1.42888e-08, 0.0245006, 0.0572112, 0.513726)
@@ -101,6 +104,14 @@ offset_bottom = 522.0
 theme_override_font_sizes/font_size = 48
 text = "Kaupa Tima"
 
+[node name="pay_debt" type="Button" parent="."]
+offset_left = 1605.0
+offset_top = 215.0
+offset_right = 1824.0
+offset_bottom = 290.0
+theme_override_font_sizes/font_size = 48
+text = "Pay Debt"
+
 [node name="sell_fish" type="Button" parent="."]
 offset_left = 1606.0
 offset_top = 309.0
@@ -116,4 +127,5 @@ offset_right = 960.0
 offset_bottom = 30.0
 
 [connection signal="button_down" from="buy_time" to="." method="_on_buy_time_button_down"]
+[connection signal="button_down" from="pay_debt" to="." method="_on_pay_debt_button_down"]
 [connection signal="pressed" from="sell_fish" to="." method="_on_sell_fish_pressed"]

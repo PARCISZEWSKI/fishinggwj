@@ -1,9 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxfuusat0cufs"]
+[gd_scene load_steps=17 format=3 uid="uid://dxfuusat0cufs"]
 
 [ext_resource type="Script" uid="uid://b0qy61vop2wc" path="res://interface/game_over.gd" id="1_jm08o"]
+[ext_resource type="Texture2D" uid="uid://hu848l4mhkhr" path="res://assets/bakgrunnur i.png" id="2_36ikk"]
+[ext_resource type="Texture2D" uid="uid://bw828h46l0sp5" path="res://assets/bátur.png" id="3_1r5mb"]
+[ext_resource type="Texture2D" uid="uid://damcv0bmipy64" path="res://assets/bottom_back..png" id="3_o3mv0"]
 [ext_resource type="Theme" uid="uid://cfkxwyulff85" path="res://assets/theme.tres" id="3_vcjr5"]
+[ext_resource type="Texture2D" uid="uid://bjl6bwjm8yy81" path="res://assets/bottom_mid.png" id="4_1r5mb"]
 [ext_resource type="PackedScene" uid="uid://hsux5oifdyix" path="res://assets/water_shader.tscn" id="4_27e14"]
+[ext_resource type="PackedScene" uid="uid://cqswwvxdx7x5w" path="res://components/spawn_component.tscn" id="5_jgvd3"]
 [ext_resource type="Shader" uid="uid://2jyk63bthwvy" path="res://assets/water_shader.gdshader" id="5_rbqhj"]
+[ext_resource type="PackedScene" uid="uid://3jpb3qgykne6" path="res://nodes/fish.tscn" id="6_cs7qw"]
+[ext_resource type="PackedScene" uid="uid://4eng36vlcp03" path="res://nodes/fish2.tscn" id="7_a067n"]
+[ext_resource type="PackedScene" uid="uid://b1ub6vrhf2n8m" path="res://nodes/fish3.tscn" id="8_5lufc"]
+[ext_resource type="Texture2D" uid="uid://cvvwqhvuv6vsa" path="res://assets/bottom_front.png" id="9_uc018"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_i74xo"]
 
@@ -20,11 +29,43 @@ shader_parameter/fast_noise = SubResource("NoiseTexture2D_g8y3y")
 shader_parameter/speed = Vector2(0.03, 0.07)
 shader_parameter/wave_strength = 1.0
 shader_parameter/scale_y = 0.0
-shader_parameter/y_zoom = 0.350494
+shader_parameter/y_zoom = 0.385543
 
 [node name="gameOver" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_jm08o")
+
+[node name="sprites" type="Node2D" parent="."]
+position = Vector2(0, -3)
+
+[node name="BakgrunnurI" type="Sprite2D" parent="sprites"]
+modulate = Color(0.85098, 0.168627, 0.2, 0.945098)
+position = Vector2(1013, 563)
+texture = ExtResource("2_36ikk")
+
+[node name="Bátur" type="Sprite2D" parent="sprites"]
+position = Vector2(1228, 1035)
+rotation = -3.52334
+texture = ExtResource("3_1r5mb")
+
+[node name="BottomBack_" type="Sprite2D" parent="sprites"]
+position = Vector2(968, 496)
+texture = ExtResource("3_o3mv0")
+
+[node name="BottomMid" type="Sprite2D" parent="sprites"]
+position = Vector2(968, 496)
+texture = ExtResource("4_1r5mb")
+
+[node name="spawnComponent" parent="." instance=ExtResource("5_jgvd3")]
+position = Vector2(0, -3)
+fish_scene = Array[PackedScene]([ExtResource("6_cs7qw"), ExtResource("7_a067n"), ExtResource("8_5lufc")])
+max_fish = 12
+spawn_area = Rect2(0, 0, 1920, 1080)
+spawn_rate = 0.001
+
+[node name="BottomFront" type="Sprite2D" parent="."]
+position = Vector2(968, 493)
+texture = ExtResource("9_uc018")
 
 [node name="menu" type="VBoxContainer" parent="."]
 anchors_preset = 8

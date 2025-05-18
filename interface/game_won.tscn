@@ -1,0 +1,106 @@
+[gd_scene load_steps=16 format=3 uid="uid://sq756ar7j8qn"]
+
+[ext_resource type="Script" uid="uid://ch1fwciq8s670" path="res://interface/game_won.gd" id="1_covll"]
+[ext_resource type="Texture2D" uid="uid://hu848l4mhkhr" path="res://assets/bakgrunnur i.png" id="2_g4nod"]
+[ext_resource type="Theme" uid="uid://cfkxwyulff85" path="res://assets/theme.tres" id="2_jks3n"]
+[ext_resource type="Texture2D" uid="uid://damcv0bmipy64" path="res://assets/bottom_back..png" id="3_brpda"]
+[ext_resource type="PackedScene" uid="uid://hsux5oifdyix" path="res://assets/water_shader.tscn" id="3_g4nod"]
+[ext_resource type="Texture2D" uid="uid://cvvwqhvuv6vsa" path="res://assets/bottom_front.png" id="4_clg5y"]
+[ext_resource type="Shader" uid="uid://2jyk63bthwvy" path="res://assets/water_shader.gdshader" id="4_k84yf"]
+[ext_resource type="Texture2D" uid="uid://bjl6bwjm8yy81" path="res://assets/bottom_mid.png" id="5_n3w35"]
+[ext_resource type="PackedScene" uid="uid://cqswwvxdx7x5w" path="res://components/spawn_component.tscn" id="9_clg5y"]
+[ext_resource type="PackedScene" uid="uid://3jpb3qgykne6" path="res://nodes/fish.tscn" id="10_50c8e"]
+[ext_resource type="PackedScene" uid="uid://4eng36vlcp03" path="res://nodes/fish2.tscn" id="11_edvnd"]
+[ext_resource type="PackedScene" uid="uid://b1ub6vrhf2n8m" path="res://nodes/fish3.tscn" id="12_f5tig"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_i74xo"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g8y3y"]
+width = 500
+height = 500
+seamless = true
+noise = SubResource("FastNoiseLite_i74xo")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wwcsp"]
+shader = ExtResource("4_k84yf")
+shader_parameter/CAST_COLOR = Color(0.198312, 0.223713, 0.354983, 1)
+shader_parameter/fast_noise = SubResource("NoiseTexture2D_g8y3y")
+shader_parameter/speed = Vector2(0.03, 0.07)
+shader_parameter/wave_strength = 1.0
+shader_parameter/scale_y = 0.0
+shader_parameter/y_zoom = 0.424098
+
+[node name="gameWon" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_covll")
+
+[node name="sprites" type="Node2D" parent="."]
+
+[node name="BakgrunnurI" type="Sprite2D" parent="sprites"]
+position = Vector2(1013, 563)
+texture = ExtResource("2_g4nod")
+
+[node name="BottomBack_" type="Sprite2D" parent="sprites"]
+position = Vector2(968, 496)
+texture = ExtResource("3_brpda")
+
+[node name="BottomMid" type="Sprite2D" parent="sprites"]
+position = Vector2(968, 496)
+texture = ExtResource("5_n3w35")
+
+[node name="spawnComponent" parent="." instance=ExtResource("9_clg5y")]
+fish_scene = Array[PackedScene]([ExtResource("10_50c8e"), ExtResource("11_edvnd"), ExtResource("12_f5tig")])
+max_fish = 12
+spawn_area = Rect2(0, 0, 1920, 1080)
+spawn_rate = 0.001
+
+[node name="BottomFront" type="Sprite2D" parent="."]
+position = Vector2(968, 496)
+texture = ExtResource("4_clg5y")
+
+[node name="menu" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.5
+offset_top = -73.5
+offset_right = 98.5
+offset_bottom = 73.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_jks3n")
+
+[node name="Label" type="Label" parent="menu"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 46
+text = "You Won"
+horizontal_alignment = 1
+
+[node name="pillow1" type="Control" parent="menu"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="start" type="Button" parent="menu"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Main menu"
+
+[node name="pillow2" type="Control" parent="menu"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="waterShader" parent="." instance=ExtResource("3_g4nod")]
+z_index = 10
+material = SubResource("ShaderMaterial_wwcsp")
+position = Vector2(978.125, 553.875)
+scale = Vector2(1991.75, 1164.25)
+
+[connection signal="button_down" from="menu/start" to="." method="_on_start_button_down"]

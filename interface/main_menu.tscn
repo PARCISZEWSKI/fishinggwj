@@ -1,12 +1,20 @@
-[gd_scene load_steps=11 format=3 uid="uid://hijht0dsuvgo"]
+[gd_scene load_steps=19 format=3 uid="uid://hijht0dsuvgo"]
 
 [ext_resource type="Theme" uid="uid://cfkxwyulff85" path="res://assets/theme.tres" id="1_g8ogf"]
 [ext_resource type="Script" uid="uid://b7sbeegio13yy" path="res://interface/main_menu.gd" id="1_wwcsp"]
 [ext_resource type="PackedScene" uid="uid://hsux5oifdyix" path="res://assets/water_shader.tscn" id="2_dftu7"]
 [ext_resource type="AudioStream" uid="uid://bxt36m8we87f8" path="res://assets/audio/Boop.wav" id="3_bjm56"]
 [ext_resource type="Shader" uid="uid://2jyk63bthwvy" path="res://assets/water_shader.gdshader" id="3_rahlh"]
+[ext_resource type="Texture2D" uid="uid://hu848l4mhkhr" path="res://assets/bakgrunnur i.png" id="3_vnffm"]
+[ext_resource type="Texture2D" uid="uid://damcv0bmipy64" path="res://assets/bottom_back..png" id="4_b4dut"]
+[ext_resource type="Texture2D" uid="uid://bjl6bwjm8yy81" path="res://assets/bottom_mid.png" id="5_v8blk"]
+[ext_resource type="PackedScene" uid="uid://cqswwvxdx7x5w" path="res://components/spawn_component.tscn" id="6_40t8b"]
 [ext_resource type="Texture2D" uid="uid://b48kcaieiyha" path="res://assets/fullscreen_icon.png" id="7_i2iwl"]
+[ext_resource type="PackedScene" uid="uid://3jpb3qgykne6" path="res://nodes/fish.tscn" id="7_k6ain"]
 [ext_resource type="Texture2D" uid="uid://cutltocyoo061" path="res://assets/Minimize_icon.png" id="8_sra6w"]
+[ext_resource type="PackedScene" uid="uid://4eng36vlcp03" path="res://nodes/fish2.tscn" id="8_vo645"]
+[ext_resource type="PackedScene" uid="uid://b1ub6vrhf2n8m" path="res://nodes/fish3.tscn" id="9_6hdiq"]
+[ext_resource type="Texture2D" uid="uid://cvvwqhvuv6vsa" path="res://assets/bottom_front.png" id="10_a302r"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_i74xo"]
 
@@ -29,18 +37,43 @@ shader_parameter/y_zoom = 0.385543
 script = ExtResource("1_wwcsp")
 clickSound = ExtResource("3_bjm56")
 
+[node name="sprites" type="Node2D" parent="."]
+
+[node name="BakgrunnurI" type="Sprite2D" parent="sprites"]
+position = Vector2(1013, 563)
+texture = ExtResource("3_vnffm")
+
+[node name="BottomBack_" type="Sprite2D" parent="sprites"]
+position = Vector2(968, 496)
+texture = ExtResource("4_b4dut")
+
+[node name="BottomMid" type="Sprite2D" parent="sprites"]
+position = Vector2(968, 496)
+texture = ExtResource("5_v8blk")
+
+[node name="spawnComponent" parent="." instance=ExtResource("6_40t8b")]
+fish_scene = Array[PackedScene]([ExtResource("7_k6ain"), ExtResource("8_vo645"), ExtResource("9_6hdiq")])
+max_fish = 12
+spawn_area = Rect2(0, 0, 1920, 1080)
+spawn_rate = 0.001
+
+[node name="BottomFront" type="Sprite2D" parent="."]
+position = Vector2(968, 496)
+texture = ExtResource("10_a302r")
+
 [node name="menu" type="VBoxContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -98.5
-offset_top = -73.5
-offset_right = 98.5
-offset_bottom = 73.5
+offset_left = -312.0
+offset_top = -159.0
+offset_right = 173.0
+offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.38448, 1.41016)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("1_g8ogf")
@@ -50,7 +83,7 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
 theme_override_font_sizes/font_size = 46
-text = "Title"
+text = "Viking Fishing"
 horizontal_alignment = 1
 
 [node name="pillow1" type="Control" parent="menu"]
@@ -59,7 +92,9 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.3
 
 [node name="start" type="Button" parent="menu"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 3
 text = "Start"
 
@@ -82,11 +117,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -163.0
-offset_top = -72.0
+offset_top = -155.0
 offset_right = 160.0
-offset_bottom = 207.0
+offset_bottom = 124.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.29534, 1.33152)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("1_g8ogf")

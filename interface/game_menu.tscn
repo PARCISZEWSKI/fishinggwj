@@ -10,10 +10,11 @@
 [sub_resource type="CanvasTexture" id="CanvasTexture_eb6dy"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_i74xo"]
+frequency = 0.0005
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g8y3y"]
-width = 100
-height = 100
+width = 2000
+height = 2000
 seamless = true
 noise = SubResource("FastNoiseLite_i74xo")
 
@@ -23,8 +24,8 @@ shader_parameter/CAST_COLOR = Color(9.40054e-09, 0.0118882, 0.0363577, 0)
 shader_parameter/fast_noise = SubResource("NoiseTexture2D_g8y3y")
 shader_parameter/speed = Vector2(0.03, 0.07)
 shader_parameter/wave_strength = 2.0
-shader_parameter/scale_y = 100.0
-shader_parameter/y_zoom = 0.424098
+shader_parameter/scale_y = 0.0
+shader_parameter/y_zoom = 0.466507
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_1elys"]
 
