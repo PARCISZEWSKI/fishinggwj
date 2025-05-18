@@ -12,7 +12,7 @@ height = 26.0056
 scale = Vector2(3, 3)
 script = ExtResource("1_vmkq6")
 soundDeath = ExtResource("2_711dg")
-move_speed = 300.0
+move_speed = 400.0
 
 [node name="visual" type="Node2D" parent="."]
 

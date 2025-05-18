@@ -10,7 +10,7 @@ height = 41.3377
 [node name="fish" type="Area2D"]
 scale = Vector2(3, 3)
 script = ExtResource("1_10obt")
-move_speed = 500.0
+move_speed = 600.0
 
 [node name="visual" type="Node2D" parent="."]
 
