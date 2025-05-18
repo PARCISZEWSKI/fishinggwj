@@ -47,7 +47,7 @@ shader_parameter/fast_noise = SubResource("NoiseTexture2D_dp3eg")
 shader_parameter/speed = Vector2(0.03, 0.07)
 shader_parameter/wave_strength = 2.0
 shader_parameter/scale_y = 100.0
-shader_parameter/y_zoom = 0.350494
+shader_parameter/y_zoom = 0.424098
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_yuijs"]
 
@@ -142,7 +142,7 @@ texture = ExtResource("12_7mqwv")
 [node name="Arrow5" type="Sprite2D" parent="tutorial"]
 modulate = Color(0.968627, 0.905882, 0.717647, 1)
 self_modulate = Color(0.992157, 0.984314, 0.984314, 1)
-position = Vector2(1138, 429)
+position = Vector2(1230, 468)
 rotation = 3.82762
 scale = Vector2(2.07994, -0.69572)
 skew = -0.604049
@@ -151,9 +151,9 @@ texture = ExtResource("12_7mqwv")
 [node name="Arrow3" type="Sprite2D" parent="tutorial"]
 modulate = Color(0.968627, 0.905882, 0.717647, 1)
 self_modulate = Color(0.992157, 0.984314, 0.984314, 1)
-position = Vector2(1020, 140)
-rotation = -2.44411
-scale = Vector2(1.58133, 0.624208)
+position = Vector2(1078, 111)
+rotation = -2.73033
+scale = Vector2(2.20919, 1.27238)
 skew = -0.603155
 texture = ExtResource("12_7mqwv")
 
@@ -202,19 +202,19 @@ autowrap_mode = 2
 
 [node name="Label3" type="Label" parent="tutorial/text"]
 layout_mode = 0
-offset_left = 1128.0
-offset_top = 195.0
-offset_right = 1397.0
-offset_bottom = 270.0
+offset_left = 1226.0
+offset_top = 166.0
+offset_right = 1495.0
+offset_bottom = 241.0
 text = "Game over when time runs out"
 autowrap_mode = 2
 
 [node name="Label6" type="Label" parent="tutorial/text"]
 layout_mode = 0
-offset_left = 1266.0
-offset_top = 496.0
-offset_right = 1535.0
-offset_bottom = 571.0
+offset_left = 1392.0
+offset_top = 570.0
+offset_right = 1661.0
+offset_bottom = 645.0
 text = "Buy time before starting"
 autowrap_mode = 2
 
