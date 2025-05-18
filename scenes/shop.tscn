@@ -47,14 +47,14 @@ shader_parameter/fast_noise = SubResource("NoiseTexture2D_dp3eg")
 shader_parameter/speed = Vector2(0.03, 0.07)
 shader_parameter/wave_strength = 2.0
 shader_parameter/scale_y = 100.0
-shader_parameter/y_zoom = 0.466507
+shader_parameter/y_zoom = 0.318631
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_yuijs"]
 
 [node name="shop" type="Node2D" groups=["shop"]]
 script = ExtResource("1_44xle")
 supply_amount = 30.0
-debt_cost = 1000.0
+debt_cost = 750.0
 buySound = SubResource("AudioStreamRandomizer_ru2r1")
 noBuy = SubResource("AudioStreamRandomizer_lxs01")
 winSound = SubResource("AudioStreamRandomizer_6nbx6")
@@ -101,7 +101,7 @@ offset_right = 1006.0
 offset_bottom = 275.0
 theme = ExtResource("9_heatd")
 theme_override_font_sizes/font_size = 48
-text = "Pay Debt: 1000kr"
+text = "Pay Debt: 750kr"
 
 [node name="sell_fish" type="Button" parent="."]
 offset_left = 576.0

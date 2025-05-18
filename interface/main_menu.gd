@@ -48,6 +48,7 @@ func initialize_game() -> void:
 	Currency.krona = start_krona
 	Currency.bass_caught = 0
 	Currency.puffer_caught = 0
+	Currency.fish3_caught = 0 
 	SupplyTimer.supply_left = 0
 
 
