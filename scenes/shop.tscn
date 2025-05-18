@@ -1,11 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://du3bwnt3hbcer"]
+[gd_scene load_steps=17 format=3 uid="uid://du3bwnt3hbcer"]
 
 [ext_resource type="Script" uid="uid://dxw8rqoxj8cgk" path="res://scenes/shop.gd" id="1_44xle"]
 [ext_resource type="Texture2D" uid="uid://bnj1a4kw5eais" path="res://assets/market .png" id="5_ajxib"]
 [ext_resource type="Texture2D" uid="uid://b6k1mcj7kh31b" path="res://assets/market briggja.png" id="8_y6sft"]
 [ext_resource type="Theme" uid="uid://cfkxwyulff85" path="res://assets/theme.tres" id="9_heatd"]
 [ext_resource type="Shader" uid="uid://2jyk63bthwvy" path="res://assets/water_shader.gdshader" id="10_5lclc"]
+[ext_resource type="Script" uid="uid://bex67v1qeta20" path="res://scenes/tutorial.gd" id="11_44xle"]
 [ext_resource type="Script" uid="uid://b1afqbou4mmu3" path="res://assets/water_shader.gd" id="11_ouqob"]
+[ext_resource type="Texture2D" uid="uid://dt2sknytjcmw3" path="res://assets/arrow.png" id="12_7mqwv"]
 [ext_resource type="PackedScene" uid="uid://o0uut8pfod8e" path="res://interface/collectibles.tscn" id="12_24it5"]
 [ext_resource type="Texture2D" uid="uid://bw828h46l0sp5" path="res://assets/bátur.png" id="12_44xle"]
 [ext_resource type="PackedScene" uid="uid://dpkcayi0yivcl" path="res://interface/game_menu.tscn" id="12_p0at6"]
@@ -26,7 +28,7 @@ shader_parameter/fast_noise = SubResource("NoiseTexture2D_dp3eg")
 shader_parameter/speed = Vector2(0.03, 0.07)
 shader_parameter/wave_strength = 2.0
 shader_parameter/scale_y = 100.0
-shader_parameter/y_zoom = 0.466507
+shader_parameter/y_zoom = 0.513158
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_yuijs"]
 
@@ -90,10 +92,146 @@ theme_override_font_sizes/font_size = 48
 text = "Selja Fisk"
 
 [node name="GameOverTimer" parent="." instance=ExtResource("13_24it5")]
-offset_left = 960.0
+offset_left = 681.0
 offset_top = 30.0
-offset_right = 960.0
+offset_right = 681.0
 offset_bottom = 30.0
+
+[node name="tutorial" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+script = ExtResource("11_44xle")
+
+[node name="ColorRect" type="ColorRect" parent="tutorial"]
+offset_left = -110.0
+offset_top = -40.0
+offset_right = 2111.0
+offset_bottom = 1149.0
+color = Color(0.0392157, 0.0392157, 0.0392157, 0.321569)
+
+[node name="Arrow2" type="Sprite2D" parent="tutorial"]
+modulate = Color(0.968145, 0.90723, 0.715988, 0.803922)
+self_modulate = Color(0.992157, 0.984314, 0.984314, 1)
+position = Vector2(1742, 155)
+rotation = -0.786975
+scale = Vector2(0.798785, 0.572445)
+skew = -0.603155
+texture = ExtResource("12_7mqwv")
+
+[node name="Arrow5" type="Sprite2D" parent="tutorial"]
+modulate = Color(0.968627, 0.905882, 0.717647, 1)
+self_modulate = Color(0.992157, 0.984314, 0.984314, 1)
+position = Vector2(1138, 429)
+rotation = 3.82762
+scale = Vector2(2.07994, -0.69572)
+skew = -0.604049
+texture = ExtResource("12_7mqwv")
+
+[node name="Arrow3" type="Sprite2D" parent="tutorial"]
+modulate = Color(0.968627, 0.905882, 0.717647, 1)
+self_modulate = Color(0.992157, 0.984314, 0.984314, 1)
+position = Vector2(1020, 140)
+rotation = -2.44411
+scale = Vector2(1.58133, 0.624208)
+skew = -0.603155
+texture = ExtResource("12_7mqwv")
+
+[node name="Arrow4" type="Sprite2D" parent="tutorial"]
+modulate = Color(0.968627, 0.905882, 0.717647, 1)
+self_modulate = Color(0.992157, 0.984314, 0.984314, 1)
+position = Vector2(80, 133)
+rotation = -1.98601
+scale = Vector2(0.95799, 0.689247)
+skew = -0.603155
+texture = ExtResource("12_7mqwv")
+
+[node name="Arrow6" type="Sprite2D" parent="tutorial"]
+modulate = Color(0.968627, 0.905882, 0.717647, 1)
+self_modulate = Color(0.992157, 0.984314, 0.984314, 1)
+position = Vector2(461, 299)
+rotation = -0.43007
+scale = Vector2(1.46709, 0.798201)
+skew = -0.603155
+texture = ExtResource("12_7mqwv")
+
+[node name="Arrow7" type="Sprite2D" parent="tutorial"]
+modulate = Color(0.968627, 0.905882, 0.717647, 1)
+self_modulate = Color(0.992157, 0.984314, 0.984314, 1)
+position = Vector2(457, 508)
+rotation = -0.43007
+scale = Vector2(1.46709, 0.798201)
+skew = -0.603155
+texture = ExtResource("12_7mqwv")
+
+[node name="text" type="Control" parent="tutorial"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("9_heatd")
+
+[node name="Label5" type="Label" parent="tutorial/text"]
+layout_mode = 0
+offset_left = 653.0
+offset_top = 635.0
+offset_right = 968.0
+offset_bottom = 710.0
+text = "Left mouse to start"
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="tutorial/text"]
+layout_mode = 0
+offset_left = 1128.0
+offset_top = 195.0
+offset_right = 1397.0
+offset_bottom = 270.0
+text = "Game over when time runs out"
+autowrap_mode = 2
+
+[node name="Label6" type="Label" parent="tutorial/text"]
+layout_mode = 0
+offset_left = 1266.0
+offset_top = 496.0
+offset_right = 1535.0
+offset_bottom = 571.0
+text = "Buy time before starting"
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="tutorial/text"]
+layout_mode = 0
+offset_left = 1594.0
+offset_top = 220.0
+offset_right = 1897.0
+offset_bottom = 338.0
+text = "Press on arrow to go fishing!"
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="tutorial/text"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 208.0
+offset_right = 376.0
+offset_bottom = 257.0
+text = "Current money"
+autowrap_mode = 1
+
+[node name="Label2" type="Label" parent="tutorial/text"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 353.0
+offset_right = 455.0
+offset_bottom = 402.0
+text = "Win game by paying off your debt"
+autowrap_mode = 1
+
+[node name="Label7" type="Label" parent="tutorial/text"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 574.0
+offset_right = 523.0
+offset_bottom = 623.0
+text = "Sell fish for kronur"
+autowrap_mode = 1
 
 [connection signal="button_down" from="buy_time" to="." method="_on_buy_time_button_down"]
 [connection signal="button_down" from="pay_debt" to="." method="_on_pay_debt_button_down"]
