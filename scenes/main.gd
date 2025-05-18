@@ -7,5 +7,6 @@ func _process(delta):
 		$player.process_mode = PROCESS_MODE_INHERIT
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	SupplyTimer.start_timer()
 	

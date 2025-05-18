@@ -17,4 +17,5 @@ script = ExtResource("2_r53vj")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+scale = Vector2(1.97446, 2.55342)
 text = "00:00"

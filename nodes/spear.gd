@@ -38,6 +38,7 @@ func _process(delta: float) -> void:
 		#FIXME: Add idle state and make it initial, so player needs to click to
 		#take out spear and then the state progresses to ready
 		SPEARSTATUS.ready:
+			Globals.first_time = false
 			var mouse_pos = get_global_mouse_position()
 			direction = (mouse_pos - global_position).normalized()
 			sprite.rotation = direction.angle() - PI/2

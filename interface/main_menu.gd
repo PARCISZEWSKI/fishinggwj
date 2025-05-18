@@ -28,8 +28,8 @@ var startLevel: PackedScene = load("res://scenes/shop.tscn") ##Level to load whe
 func _ready() -> void:
 	SupplyTimer.pause_timer()
 	get_tree().paused = false
+	initialize_game()
 	if skipMenu: #Skips menu if variable set to true, shortcut for testing
-		initialize_game()
 		get_tree().change_scene_to_packed(startLevel)
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
 		windowToggle.button_pressed = true
@@ -41,7 +41,6 @@ func _ready() -> void:
 # 		windowToggle.button_pressed = false
 
 func _on_start_button_down() -> void: ##Starts level on start button press
-	initialize_game()
 	get_tree().change_scene_to_packed(startLevel)
 	Audio.play_sound(clickSound, "Effects")
 

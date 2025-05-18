@@ -35,7 +35,6 @@ shader_parameter/y_zoom = 0.385543
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_wwcsp")
-skipMenu = true
 clickSound = ExtResource("3_bjm56")
 
 [node name="sprites" type="Node2D" parent="."]

@@ -1,12 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://du3bwnt3hbcer"]
+[gd_scene load_steps=15 format=3 uid="uid://du3bwnt3hbcer"]
 
-[ext_resource type="Texture2D" uid="uid://b6ifsx6vy7h2h" path="res://icon.svg" id="1_5u241"]
 [ext_resource type="Script" uid="uid://dxw8rqoxj8cgk" path="res://scenes/shop.gd" id="1_44xle"]
-[ext_resource type="Texture2D" uid="uid://ygry01iv8jyp" path="res://assets/mountain_back2.png" id="4_aa4hd"]
-[ext_resource type="Texture2D" uid="uid://dqqwgyik2f1t3" path="res://assets/mountain_mid2.png" id="5_68utx"]
-[ext_resource type="Texture2D" uid="uid://pqnxb37amwqh" path="res://assets/mountain_front2.png" id="6_ru2r1"]
-[ext_resource type="Texture2D" uid="uid://damcv0bmipy64" path="res://assets/bottom_back..png" id="7_lxs01"]
-[ext_resource type="Texture2D" uid="uid://bjl6bwjm8yy81" path="res://assets/bottom_mid.png" id="8_6nbx6"]
+[ext_resource type="Texture2D" uid="uid://bnj1a4kw5eais" path="res://assets/market .png" id="5_ajxib"]
+[ext_resource type="Texture2D" uid="uid://b6k1mcj7kh31b" path="res://assets/market briggja.png" id="8_y6sft"]
+[ext_resource type="Theme" uid="uid://cfkxwyulff85" path="res://assets/theme.tres" id="9_heatd"]
 [ext_resource type="Shader" uid="uid://2jyk63bthwvy" path="res://assets/water_shader.gdshader" id="10_5lclc"]
 [ext_resource type="Script" uid="uid://b1afqbou4mmu3" path="res://assets/water_shader.gd" id="11_ouqob"]
 [ext_resource type="PackedScene" uid="uid://o0uut8pfod8e" path="res://interface/collectibles.tscn" id="12_24it5"]
@@ -29,7 +26,7 @@ shader_parameter/fast_noise = SubResource("NoiseTexture2D_dp3eg")
 shader_parameter/speed = Vector2(0.03, 0.07)
 shader_parameter/wave_strength = 2.0
 shader_parameter/scale_y = 100.0
-shader_parameter/y_zoom = 0.513158
+shader_parameter/y_zoom = 0.466507
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_yuijs"]
 
@@ -39,56 +36,25 @@ supply_price = 20
 supply_amount = 30.0
 debt_cost = 100.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1.42888e-08, 0.0245006, 0.0572112, 0.513726)
-position = Vector2(948.249, 529.5)
-scale = Vector2(16.4883, 10.5391)
-texture = ExtResource("1_5u241")
-
-[node name="environment" type="Node2D" parent="."]
-
-[node name="MountainBack2" type="Sprite2D" parent="environment"]
-position = Vector2(962, 551)
-texture = ExtResource("4_aa4hd")
-
-[node name="MountainMid2" type="Sprite2D" parent="environment"]
-position = Vector2(962, 551)
-texture = ExtResource("5_68utx")
-
-[node name="MountainFront2" type="Sprite2D" parent="environment"]
-position = Vector2(962, 551)
-texture = ExtResource("6_ru2r1")
-
-[node name="BottomBack_" type="Sprite2D" parent="environment"]
-position = Vector2(965, 399)
-texture = ExtResource("7_lxs01")
-
-[node name="BottomMid" type="Sprite2D" parent="environment"]
-position = Vector2(965, 399)
-texture = ExtResource("8_6nbx6")
-
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-modulate = Color(0.188027, 0.107351, 0.0618157, 1)
-position = Vector2(1723.62, 408.749)
-scale = Vector2(5.79094, 3.37109)
-texture = ExtResource("1_5u241")
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-modulate = Color(0.188027, 0.107351, 0.0618157, 1)
-position = Vector2(1440, 630)
-scale = Vector2(13.3407, -0.306036)
-texture = ExtResource("1_5u241")
+[node name="Market" type="Sprite2D" parent="."]
+position = Vector2(921.5, 413)
+texture = ExtResource("5_ajxib")
 
 [node name="Bátur" type="Sprite2D" parent="."]
-position = Vector2(883, 497)
+position = Vector2(231.5, 468)
 texture = ExtResource("12_44xle")
+flip_h = true
 
 [node name="waterShader" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_pqync")
-position = Vector2(861, 974)
-scale = Vector2(2337, 705)
+position = Vector2(863.5, 888.75)
+scale = Vector2(2337, 517.5)
 texture = SubResource("CanvasTexture_yuijs")
 script = ExtResource("11_ouqob")
+
+[node name="MarketBriggja" type="Sprite2D" parent="."]
+position = Vector2(912.5, 409)
+texture = ExtResource("8_y6sft")
 
 [node name="gameMenu" parent="." instance=ExtResource("12_p0at6")]
 process_mode = 3
@@ -97,26 +63,29 @@ visible = false
 [node name="collectibles" parent="." instance=ExtResource("12_24it5")]
 
 [node name="buy_time" type="Button" parent="."]
-offset_left = 1572.0
-offset_top = 447.0
-offset_right = 1854.0
-offset_bottom = 522.0
+offset_left = 575.0
+offset_top = 309.0
+offset_right = 1000.0
+offset_bottom = 384.0
+theme = ExtResource("9_heatd")
 theme_override_font_sizes/font_size = 48
 text = "Kaupa Tima"
 
 [node name="pay_debt" type="Button" parent="."]
-offset_left = 1605.0
-offset_top = 215.0
-offset_right = 1824.0
-offset_bottom = 290.0
+offset_left = 586.0
+offset_top = 200.0
+offset_right = 1006.0
+offset_bottom = 275.0
+theme = ExtResource("9_heatd")
 theme_override_font_sizes/font_size = 48
 text = "Pay Debt"
 
 [node name="sell_fish" type="Button" parent="."]
-offset_left = 1606.0
-offset_top = 309.0
-offset_right = 1825.0
-offset_bottom = 384.0
+offset_left = 576.0
+offset_top = 413.0
+offset_right = 997.0
+offset_bottom = 488.0
+theme = ExtResource("9_heatd")
 theme_override_font_sizes/font_size = 48
 text = "Selja Fisk"
 
