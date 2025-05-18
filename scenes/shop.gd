@@ -14,6 +14,7 @@ extends Node2D
 var game_won: PackedScene = load("res://interface/game_won.tscn")
 
 func _ready():
+	SupplyTimer.played_warning = false
 	SupplyTimer.pause_timer()
 
 #On button press sells bass until 0 for 5 coins and then 
